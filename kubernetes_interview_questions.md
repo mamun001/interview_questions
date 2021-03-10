@@ -68,23 +68,25 @@
 
 ##
 
-5. What is the different between Ingress and Ingress Controller:
+#### 5. What is the different between Ingress and Ingress Controller:
 
     Answer: Ingress Controller FULFILLS ingress requirements
 
+##
 
-6. Most common type of Ingress Controller?
+#### 6. Most common type of Ingress Controller?
 
-    answer: Load Balancers
+    Answer: Load Balancers
 
 
-7. Kubernetes as a project supports and maintains which 3 Ingress Controllers?
+#### 7. Kubernetes as a project supports and maintains which 3 Ingress Controllers?
 
     Answer: AWS, GCE, and nginx ingress controllers.
             (This is straight from Kubernetes documentation)
 
+##
 
-8. Besides those 3, what other ingress controllers are there?
+#### 8. Besides those 3, what other ingress controllers are there?
 
     Answer:  From:  https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/
 
@@ -100,7 +102,10 @@
     j. Enroute (another envoy-based Ingress Controller)
     (and more)
 
-9. How would one start up a Kubernetes cluster to deploy containers/pods on (in GCP)?
+##
+
+
+#### 9. How would one start up a Kubernetes cluster to deploy containers/pods on (in GCP)?
 
      Answer: 
        a. via GCP GUI  OR
@@ -110,21 +115,24 @@
        e. Google Deployment Manager
        
 
+##
 
 
-10.   If a container keeps crashing, how do you troubleshoot?
+#### 10.   If a container keeps crashing, how do you troubleshoot?
 
     Answer: You can use --previous option with logs command to see the logs of a crashed container.
 
+##
 
 
-11.  What happens to containers if they use too much cpu or memory?
+#### 11.  What happens to containers if they use too much cpu or memory?
 
     Answer: if they use too much memory, they are evicted.
             if they use too much cpu, they are throttled.
 
+##
 
-12.  How do you manage scaling in Kubernetes?
+#### 12.  How do you manage scaling in Kubernetes?
 
     Answer: 
       This artcile answers it very well:
@@ -135,21 +143,23 @@
       c. Cluster Autoscaler:
            The cluster autoscaler is a Kubernetes tool that increases or decreases the size of a Kubernetes cluster (by adding or removing nodes), based on the presence of pending pods and node utilization metrics
 
+##
 
-13. How have you used RBAC with Kubernetes ?
+#### 13. How have you used RBAC with Kubernetes ?
 
     Answer: Answer will depend on your use case. One possible answer is to have service accounts that do certain things within the cluster.
             By the way, RBAC in Kubernetes is just AWS IAM Policies and Bindings. In RBAC, you have subjects (who gets the permission), verbs (what can the subject actually do), and rolebinding (subject linking to roles) and roles.
 
 
+##
 
-14. If you have 200 micro-services in your clusters, how do you manage security of each one? How do you avoid toil?
+#### 14. If you have 200 micro-services in your clusters, how do you manage security of each one? How do you avoid toil?
 
     Answer: RBAC is the answer. You define roles. And you place subjects in those roles. Each role then will have access to X Y Z etc. This is really no different than AWS or AD.
 
+##
 
-
-15. Tell me about the hardest production Kubernetes issue you solved or faced?
+#### 15. Tell me about the hardest production Kubernetes issue you solved or faced?
 
     Answer: 
 
@@ -158,8 +168,9 @@
       There are N micro-services. One of them gets a new version. But, the HPA for those pods are set wrong. Container keep crashing. This causes cascading failures for many other micro-services. 
       Solution: Fix the HPA settings and add circuit-breakers in the consuming micro-services.
 
+##
 
-16. You want to know how to make yaml files for making PODs and you have no access to internet. What do you do?
+#### 16. You want to know how to make yaml files for making PODs and you have no access to internet. What do you do?
 
     Answer: kubectl explain pod --recursive
 
@@ -167,52 +178,63 @@
 
       Simillarly: kubectl explain pv --recursive    (for PVs)
 
+##
 
-17. How can you have SSL certificates in Kubernetes?
+#### 17. How can you have SSL certificates in Kubernetes?
 
     Answer: SSL cert can be a secret. Then that secret can be mounted on a pod and that pod can whatever it wants with it (e.g. host a SSL web site)
 
+##
 
-18. Opensource Tool to switch contexts easily:
+
+#### 18. Opensource Tool to switch contexts easily:
 
     Answer: kubectx
 
+##
 
-19. Opensource menu-driven text-based flexible Tool to manage Kubernetes everything:
+
+#### 19. Opensource menu-driven text-based flexible Tool to manage Kubernetes everything:
 
     Answer: k9s
 
+##
 
-20. "kubectl explain" command is great, but you must know the exact name of the resource (e.g. pod/services/persistentvolume) to get the details, unless you do recursive.
-    How do you get the names of these resources from command line?
+
+#### 20. "kubectl explain" command is great, but you must know the exact name of the resource (e.g. pod/services/persistentvolume) to get the details, unless you do recursive. How do you get the names of these resources from command line?
 
     Answer: kubectl api-resources  (gives you a list and shortnames and more)  
 
+##
 
-21. Name some of the other verbs that kubectl has besides "run" "create" or "apply" ?
+#### 21. Name some of the other verbs that kubectl has besides "run" "create" or "apply" ?
 
-    Answer: There are many! Some examples below:
+         Answer: There are many! Some examples below:
 
-    expose, set , explain, get, edit, delete, rollout, scale, autoscale
-    certificate, cluster-info, top, cordon, uncordon, drain, taint
-    describe, logs, attach, exec, port-forward, proxy, cp, auth, debug
-    diff, apply, patch, replace, wait, kustomize, label, annotate,
-    completion, api-resources, api-versions, config, plugin, version
+         expose, set , explain, get, edit, delete, rollout, scale, autoscale
+         certificate, cluster-info, top, cordon, uncordon, drain, taint
+         describe, logs, attach, exec, port-forward, proxy, cp, auth, debug
+         diff, apply, patch, replace, wait, kustomize, label, annotate,
+         completion, api-resources, api-versions, config, plugin, version
 
-    Some of more frequently used ones are: logs, get, port-forward and label.
+        Some of more frequently used ones are: logs, get, port-forward and label.
+
+##
 
 
-22. What might you get when you run kubectl api-resources? 
+#### 22. What might you get when you run kubectl api-resources? 
 
     Answer: api-resources is fancy term. Basically you get stuff like pods/secrets/config-maps all that stuff.
 
+##
 
-23. How else can you get help with kubectl? (besides kubectl explain command)
+##### 23. How else can you get help with kubectl? (besides kubectl explain command)
 
     Answer: kubectl --help  is actaully better than kubectl explain in my opinion.
 
+##
 
-24. You ran "kubectl --help" , but you want a little more help. What to do?
+#### 24. You ran "kubectl --help" , but you want a little more help. What to do?
 
 
     Answer:
@@ -220,7 +242,9 @@
        kubectl top --help 
        kubectl describe --help 
 
-25. Outline the steps to deploy additional scheduler on a Kubernetes cluster (not GKE)
+##
+
+#### 25. Outline the steps to deploy additional scheduler on a Kubernetes cluster (not GKE)
 
      Answer:
        Package the new scheduler in a docker image
@@ -228,65 +252,75 @@
        Create a deploymentment file with type: deployment and component: scheduler (in namespace kube-system)
        Deploy the the scheduler with apply -f scheduler.yaml command
 
-26. List out 2 use cases for Daemonsets and explain why it is more appropriate to use daemonset than deployment for those use case:
+##
+
+#### 26. List out 2 use cases for Daemonsets and explain why it is more appropriate to use daemonset than deployment for those use case:
 
      Answer:
        1. Pod that collects logs. Better to use daemonsets for this because you can logs to be fed from all pods (e.g. to kibana). Otherwise you have to make this part of EVERY deployment which would be annoying and repetitive.
        2. Pod that runs monitoring (e.g. dynatrace or datadog). Reason is the same as above.
 
+##
 
-
-
-27. How to move workload to new nodepool? 
+#### 27. How to move workload to new nodepool? 
 
     Answer: cordon and drain
         1. cordon means: dont add any more pods to this nodepool
         2. drain means: move current pods out of it
-  
 
-28. Is ClusterIP private or public?
+##  
+
+#### 28. Is ClusterIP private or public?
 
     Ans: Private
 
+##
 
-29. Which one will allow to access your services from internet: cluster ip or nodeport? 
+#### 29. Which one will allow to access your services from internet: cluster ip or nodeport? 
 
     Answer:  nodeport. confirmed!  
              why? Because NODE is a VM with an external IP and thus can be reached.
              Cluster IP is 10.x IP (internal)
 
+##
 
-30. For a service, when we use nodeport, EVERY node does what?
+#### 30. For a service, when we use nodeport, EVERY node does what?
 
     Answer: Gives that service an IP and proxy's it. confirmed 
 
+##
 
-31. What does it mean when we say that a node proxy's a service?
+#### 31. What does it mean when we say that a node proxy's a service?
 
     Answer: The node forwards the traffic to a pod that is part of the service.
 
+##
 
-32. 2 ways to let container have access to a secret: 
+#### 32. 2 ways to let container have access to a secret: 
 
    Answer: Volume and ENV variable
 
+##
 
-33. How can a container have access to secret via ENV variable? 
+#### 33. How can a container have access to secret via ENV variable? 
 
     Answer: You can define a ENV in yaml file just like everyhing else and container can just do echo $WHATEVER
 
+##
 
-34. One-liner kubectl commad to run a pod with nginx:alpine 
+### 34. One-liner kubectl commad to run a pod with nginx:alpine 
 
     Answer:  k run nginx-pod --image=nginx:alpine 
 
              (nginx-pod is arbitrary pod name)
 
+##
 
-35. One liner command to  run a pod with a label  
+#### 35. One liner command to  run a pod with a label  
 
     Answer: kubectl run foobar --image=redis:alpine -l label1:foo 
 
+##
 
 36. kubectl command to show labels of all pods in default namespace:  
 
