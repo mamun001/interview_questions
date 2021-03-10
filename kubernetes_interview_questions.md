@@ -17,19 +17,19 @@
 #####     You answer would be uniqe to your experience, but, here are some possibilities.
 
 
-#####     a. created clusters
-#####     b. upgarde master and nodepool versions
-#####     c. upgraded legacy monitoring 
-#####     d. added Istio (Kiali)
-#####     e. added weave
-#####     f. deployed via helm charts
-#####     h. healthcheck scripts for various workloads
-#####     g. deployed spinnaker 
-#####     h. configured HPA
-#####     i. day to day: configmps, secrets, PVs, PVCs
-#####     j. troubleshot operational issues
-#####     k. stateful sets 
-#####     l. created CSRs and signed certificates
+######     a. created clusters
+######     b. upgarde master and nodepool versions
+######     c. upgraded legacy monitoring 
+######     d. added Istio (Kiali)
+######     e. added weave
+######     f. deployed via helm charts
+######     h. healthcheck scripts for various workloads
+######     g. deployed spinnaker 
+######     h. configured HPA
+######     i. day to day: configmps, secrets, PVs, PVCs
+######     j. troubleshot operational issues
+######     k. stateful sets 
+######     l. created CSRs and signed certificates
 
 ##
 
