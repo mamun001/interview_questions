@@ -908,26 +908,28 @@
 
 ##
 
-#### 121. You ran: kubectl get po foo -o yaml > foo.yaml .  The problem is that this YAML file has lots on info about the running pod in addition to the "core" yaml content need.
-       How do you get a clean YAML file out of this?
+#### 121. You ran: kubectl get po foo -o yaml > foo.yaml .  The problem is that this YAML file has lots on info about the running pod in addition to the "core" yaml content need.  How do you get a clean YAML file out of this?
 
        Answer: You can delete most of those lines (e.g. the status fields and many others)
 
+##
 
-122. What is a clusterrolebinding?
+#### 122. What is a clusterrolebinding?
 
      Answer: It is valid Kubernetes object that links a subject (e.g. an user) to a role.
              This is how a user gets all the permissions that role has. (Much like AWS)
 
+##
 
 
-123. If you want a pod to be associated with a service account name, how do you do it in yaml file?
+#### 123. If you want a pod to be associated with a service account name, how do you do it in yaml file?
 
      Answer: In the "spec" section, add: serviceAccountName foobarserviceaccount
              (Much like in AWS, an ec2 can "assume role", here a pod gets the permissions that the Service Account has)
 
+##
 
-124. What does a YAML file for a pod that has 2 containers look like?
+#### 124. What does a YAML file for a pod that has 2 containers look like?
 
      Answer: "containers" section is an array. So, you can define as many containers as you like using dashes.
        Here is an example: 
@@ -946,165 +948,193 @@
              name TWO
              command sleep 1000
 
+##
 
-125. How to see what network policies you have in default namespace?
+#### 125. How to see what network policies you have in default namespace?
 
      Answer: kubectl get netpol
 
+##
 
-126. Can you use pod selctors in ingres network policy?
+#### 126. Can you use pod selctors in ingres network policy?
 
      Answer: Yes.
 
+##
 
-
-127. What is the deal with "api-versions". What is the context for this?
+#### 127. What is the deal with "api-versions". What is the context for this?
 
      Answer: Kubernetes is not one API. It is set of APIs. As in the case of any large scale development project, each api is it's stage of maturity. This is why 1. you see so many Kubernetes APIs and 2. Each has different versions (alpha, beta etc.)
 
+##
 
-128. How to see the correct network api version to use in neteork policy yaml file?
+#### 128. How to see the correct network api version to use in neteork policy yaml file?
   
      Answer: kubectl api-versions | grep -i network
 
-129. On a Mac or PC, Where is the default kubectl configuration file?
+##
+
+#### 129. On a Mac or PC, Where is the default kubectl configuration file?
 
      Answer: Is located at ~/. kube/config and is referred to as the kubeconfig file
 
+##
 
-130. You have a deployment named foo. How can you scale it up via cli: (imperative way) ?
+#### 130. You have a deployment named foo. How can you scale it up via cli: (imperative way) ?
 
      Answer: kubectl scale deployment foo --replicas=10
 
+##
 
-131. You suspect something is wrong with the control plane pods. What should your run?
+#### 131. You suspect something is wrong with the control plane pods. What should your run?
 
      Answer: kubectl -n kube-system get pods  
-       # to see if any the pods in that namespace is having problems
+       (to see if any the pods in that namespace is having problems)
 
+##
 
-132. You see that a pod is in "imagepullbackoff" state (ie not running),
+#### 132. You see that a pod is in "imagepullbackoff" state (ie not running),
      what should you look at?
 
      Answer: You should see which image that pod is configured to use.
              "imagepullbackoff" means that, for some reason, Kubernetes could not pull the docker image.
              This could be because image is not there OR there are permission issues prohibiting the download of that image.
 
+##
 
-133. Scenario Question: You issued the command to scale up a deployment to 3 replicas. it is stuck at 3 desired and 1 running.
+#### 133. Scenario Question: You issued the command to scale up a deployment to 3 replicas. it is stuck at 3 desired and 1 running.
      You found out that the controller-manager pod on the master had issues. You fixed that so, controller-manager pod
      is now running. What do you have to do next so that scaling finally happens?
 
      Answer: Nothing! controller-manager starts and does its job
 
+##
 
-134. How do you list out all pods running in the namespace foo?
+#### 134. How do you list out all pods running in the namespace foo?
 
      Answer: kubectl get pods -namespace=foo
 
+##
 
-135. What does imperative vs declarative provisioning means in provisioning resources for Kubernetes?
+#### 135. What does imperative vs declarative provisioning means in provisioning resources for Kubernetes?
 
      Answer:
        Imperative: Basically via commands
        Declarative: basically via yaml files
 
+##
 
-136. Assume that you are connected to the cluster and context, how do you quickly create an NGINX pod using an imperative approach?
+#### 136. Assume that you are connected to the cluster and context, how do you quickly create an NGINX pod using an imperative approach?
 
      Answer: kubectl run nginx --image=nginx
 
+##
 
-137.  Describe what is namespace in Kubernetes and why is it used?
+#### 137.  Describe what is namespace in Kubernetes and why is it used?
 
      Answer: 
        It's like an isolation process. e.g. If you namespaces dev and prod, you can have pods named foo in both namespaces and there is no conflict. (In the same cluster)
        In Kubernetes, you can have the dev team their own namespace and prod can have its own namespace.
 
+##
 
-138. You deploy an application to a GKE cluster by applying kubectl -f deployment.yaml.  After deployment you check the pods status and see that the pods are in CrashLoopBack mode.  Outline the steps that you use to troubleshoot and the kubectl command you use to diagnose the problem.
+#### 138. You deploy an application to a GKE cluster by applying kubectl -f deployment.yaml.  After deployment you check the pods status and see that the pods are in CrashLoopBack mode.  Outline the steps that you use to troubleshoot and the kubectl command you use to diagnose the problem.
 
-   Step 1: run the describe pod command and read through events
-   Step 2: run the kubectl logs -p podname and see what is going on with pods (use --previous option, since pod has already crashed)
+     Answer:
+       Step 1: run the describe pod command and read through events
+       Step 2: run the kubectl logs -p podname and see what is going on with pods (use --previous option, since pod has already crashed)
 
+##
 
-139. What are the functions of Kubernetes control plane?  Where do those functions reside?
+#### 139. What are the functions of Kubernetes control plane?  Where do those functions reside?
 
      Answer: Api server + etcd + scheduler + kube-control-manager + cloud-control-manager
              They run on the master node.
 
+##
 
-140.  What are the components of the worker node?
+#### 140.  What are the components of the worker node?
 
       Answer: Docker (runtime engine) + kubelet + kube-proxy
 
+##
 
-141. Which component of Kubernetes is responsible for tainting and placement of pods on the nodes.
+#### 141. Which component of Kubernetes is responsible for tainting and placement of pods on the nodes.
 
      Answer: scheduler
 
+##
 
-142. When a new GKE cluster is created,  what are the main namespaces created?
+#### 142. When a new GKE cluster is created,  what are the main namespaces created?
 
      Answer: Default and kube-system
 
+##
 
-143. What do you use labels and selectors for in Kubernets?
+#### 143. What do you use labels and selectors for in Kubernets?
 
       Answer: So that you can select something based on those labels. They are like tags in AWS. Let's say I want to use node-affinity. We can use labels to select (selector argument in yaml or command) the ones desired.
 
+##
 
-144. Examples of  slapping labels on pods
+#### 144. Examples of  slapping labels on pods
 
     Answer:
       kubetcl  label pods pod1 owner=mamun
       kubectl  label pods pod2 owner=foo
 
+##
 
-145. Examples of using selectors to get pods:
+#### 145. Examples of using selectors to get pods:
 
     Answer:
       kubetcl get pods --selector owner=mamun
       kubectl get get pods -l owner=foo
 
+##
 
-146. What are annotations use for in Kubernetes and how are they different from labels and selectors  
+#### 146. What are annotations use for in Kubernetes and how are they different from labels and selectors  
 
      Answer:  Non-identifying metadata (e.g. contact info). Almost like comments
               You can't select based on annotations. You can select based on labels.
 
+##
 
-147. Is deployment and service the same - Explain the difference or the sameness between the 2 concepts
+#### 147. Is deployment and service the same - Explain the difference or the sameness between the 2 concepts
 
  
       Answer: No.
          Deployment is like terraform apply (of pods) that you can run a bunch of time with changing configurations (Kubernetes keeps track and so you can roll back).
          Service is basically an entrypoint for users to hit the pods with the right application. Users only know about service and not the pods behind it.
 
+##
 
-148. How do pods and service relate to each other.  
+#### 148. How do pods and service relate to each other.  
 
      Answer: Service = pods + some ip and ports (there are 3 different kinds, nodeport, clusterip and LB)
              Another way to look at it: service is a persistent front-door to 1 or more pods that can come and go.
 
+##
 
-
-149.  What are the 3 main characteristics you should focus on to troubleshoot what can go wrong between pods and services?
+#### 149.  What are the 3 main characteristics you should focus on to troubleshoot what can go wrong between pods and services?
 
       Answer: Target port (port on containers), labels and selectors
 
+##
 
-150. What are the mechanisms to expose an application running in Kubernetes to the outside world?
+#### 150. What are the mechanisms to expose an application running in Kubernetes to the outside world?
 
      Answer: pods ---> service ---> Public IP ---> DNS ---> External Users
 
+##
 
-151. How do you check to see if the deployments are ready?
+#### 151. How do you check to see if the deployments are ready?
 
      Answer: kubectl get deployments
 
+##
 
-152. List some useful commands to troubleshoot Pods issues:  (These will come in handy on various interview questions)
+#### 152. List some useful commands to troubleshoot Pods issues:  (These will come in handy on various interview questions)
 
      Answer:
        Kubectl describe pod
@@ -1115,14 +1145,16 @@
        Kubectl exec -ti podname bash
 
 
+##
 
-153. What is port-forwarding?
+#### 153. What is port-forwarding?
 
      Answer: You make a link between a port on your Mac or PC (localhost) and a port on a pod.
              For example, pod is open on port 443. If you set up port-forward to you localhost port 4430, you can get to the web server on pod via https://localhost:4430
 
+##
 
-154. Pods can have startup and runtime errors - Explain what some of these errors mean and 2-3 common culprits  (These wil come in handy for various interview questions)
+#### 154. Pods can have startup and runtime errors - Explain what some of these errors mean and 2-3 common culprits  (These wil come in handy for various interview questions)
 
 
      Answer:
@@ -1146,69 +1178,81 @@
        : pod has been scheduled, but it has not finished coming up for one reason or another
 	       There is a readiness probe that's failing
 
+##
 
-155.  Can you schedule regular pods on the master node (general Kubernetes, not GKE).  
+#### 155.  Can you schedule regular pods on the master node (general Kubernetes, not GKE).  
 
       Answer: Yes. BUT, the noschedule taint (which is there by default) has to be removed first.
 
+##
 
-156. You have a node A with taint=blue.  You have a Pod X with toleration for taint=blue.  Would pod X always be placed on Node A. Explain your answer in detail (Why yes or no)
+#### 156. You have a node A with taint=blue.  You have a Pod X with toleration for taint=blue.  Would pod X always be placed on Node A. Explain your answer in detail (Why yes or no)
 
      Answer:
        Taint is a barrier. The fact that pod X has toleration for blue means that it CAN be scheduled on node A. 
        However, if there are other nodes with no taint or taint of blue, X can land there too.
 
+##
 
 
-157. What is the use case for node affinity vs nodeSelector?
+#### 157. What is the use case for node affinity vs nodeSelector?
 
      Answer:
        nodeSelector is simplistic based on labels whereas node affinity allows much more complex matching, soft-matching and un-matching.
        nodeSelector use cases: pods belonging to a team go on the same node(s). Pods belonging to an environment (e.g. dev) go on the same node(s).
        node affinity use cases: geographic location. Pods go on nodes where some pods live (OR do not live)
 
+##
 
-158.  How do you find out what image of the running container (in a pod)?
+#### 158.  How do you find out what image of the running container (in a pod)?
 
       Answer: kubectl describe pod podname | grep -i image
 
+##
 
-159.  Command used to find out what node the pods are running on:
+#### 159.  Command used to find out what node the pods are running on:
 
       Answer: kubectl get pods -o wide
 
+##
 
-160. What does the READY column in the output column of the "kubectl get pods" command indicate?
+#### 160. What does the READY column in the output column of the "kubectl get pods" command indicate?
 
      Answer: How many containers are supposed to run in the pod and how many are actually running.
 
+##
 
-161.  What happens if all master nodes are unavailable on (GKE) ? would that impact workloads running on the worker nodes?
+#### 161.  What happens if all master nodes are unavailable on (GKE) ? would that impact workloads running on the worker nodes?
 
       Answer:  Workloads will keep running. However, no new deployments can be pushed. No fault tolerance using replicasets 
                (scheduler is down) will happen. This is the same as Hadoop.
 
-162.  Why are worker nodes spread out on multiple availability zones in GKE?
+##
+
+#### 162.  Why are worker nodes spread out on multiple availability zones in GKE?
 
       Answer:
         If Google Cloud has an outage in one AZ, application will still be available.
 
+##
 
-163. What is the difference between setting up a GKE cluster as regional versus zonal.  This will require you read up on GKE implementation of K8s
+#### 163. What is the difference between setting up a GKE cluster as regional versus zonal.  This will require you read up on GKE implementation of K8s
 
      Answer:
        Multi-zonal cluster: master is present in only one zone + nodes are in N zones
        Regional cluster: masters are present in N zones + nodes are in N zone
        So, In Regional cluster, master is HA at the regional level, whereas in Multi-zonal cluster, it is not.
 
+##
 
-164. What is the difference between a daemonset and a deployment?
+#### 164. What is the difference between a daemonset and a deployment?
 
      Answer: Sometimes there is a need to have some pods on EVERY node (e.g. DNS server or a log collector). One can deploy these ¿sets¿ as a daemon set on each node.
              Deployment is a declarative definition of replicasets/pods. You define what needs to go on (how many, what type etc) and the deployment controller ensures that the "desired state" is always there.
 
+##
 
-165. What is the default deployment strategy of a Kubernetes deployment?
+#### 165. What is the default deployment strategy of a Kubernetes deployment?
 
      Answer: Default is Rolling Update.
              Some other are:
@@ -1216,9 +1260,9 @@
                Canary deployment
                A/B testing
 
+##
 
-
-166. In a replica set definition how do we tell the replica set that a set of pods is part of the replica set?
+#### 166. In a replica set definition how do we tell the replica set that a set of pods is part of the replica set?
 
      Answer: Using Selectors:
        e.g.
@@ -1226,32 +1270,36 @@
          replicas: 3
          selector:
 	       matchLabels
+##
 
-167. How to add a node pool?  (in GCP)
+#### 167. How to add a node pool?  (in GCP)
 
     Answer: gcloud container node-pools create $NAME --cluster $CLUSTER --region $REGION
 
+##
 
-
-168. What namespace does kube-scheduler reside in?
+#### 168. What namespace does kube-scheduler reside in?
 
     Answer: kube-system
 
+##
 
-169. Does "kubectl pods -help"   work? 
+#### 169. Does "kubectl pods -help"   work? 
 
     Answer: no, because kubectl does not recognize "pods" as valid 2nd level command
 
+##
 
-170. What are the benefits of the resource limits in Kubernetes ?
+#### 170. What are the benefits of the resource limits in Kubernetes ?
 
   Answer: 
     This is the way to make sure the containers do not consume more resources than desired. This way, 2 things can happen:
     Runaway containers do no affect others
     We get alerted when resource increase over time does not reach a certain limit.
 
+##
 
-171.  True/False:  Resource limits are set on per-pods basis in Kubernetes
+#### 171.  True/False:  Resource limits are set on per-pods basis in Kubernetes
 
       Answer:  False. They are set at container level.
 
