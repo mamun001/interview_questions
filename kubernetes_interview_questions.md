@@ -322,95 +322,117 @@
 
 ##
 
-36. kubectl command to show labels of all pods in default namespace:  
+### 36. kubectl command to show labels of all pods in default namespace:  
 
     Answer: kubectl get pods --show-labels 
 
+##
 
-37. Whenever you run a kubectl command, it runs in the the default namespace. How do you make in run in a different namespace?
+#### 37. Whenever you run a kubectl command, it runs in the the default namespace. How do you make in run in a different namespace?
 
     Answer: use -n namespace_name   (to whatever kubectl command you are running.)
 
+##
 
-38. Command to create a namespace: 
+#### 38. Command to create a namespace: 
 
     Answer: kubectl create ns foobar # create a namespace
 
+##
 
-39. When using kubectl command, how do you to get output in json format?  
+#### 39. When using kubectl command, how do you to get output in json format?  
 
     Answer: kubectl get nodes -o json # json format
 
+##
 
-40. kubectl expose command: port VS targetport:  (which one is which ?)
+
+#### 40. kubectl expose command: port VS targetport:  (which one is which ?)
 
     Answer:
        port : on the cluster
        targetport: on the container (just like ALB)
 
+##
 
-41. Command to expose a pod as a service 
+#### 41. Command to expose a pod as a service 
 
     Answer: kubectl expose pod foobarpod --name foobarservice --port 6379 --target-port 6379  # expose a pod as a service
             (NOTE servicename is specified: foobarservice)
 
+##
 
-42.  Command to get details of a service : 
+
+#### 42.  Command to get details of a service : 
 
      Answer: kubectl describe svc foobarservice # get details of that service
 
+##
 
-43. Command to create a deployment from image: foobar/webapp-color 
+
+#### 43. Command to create a deployment from image: foobar/webapp-color 
 
     Answer: kubectl create deployment foobardeployment --image=foobar/webapp-color 
 
+## 
 
-44. Command to scale deploayment named foobardeployment to 2 replicas  
+#### 44. Command to scale deploayment named foobardeployment to 2 replicas  
 
     Answer: kubectl scale deployment foobardeployment --replicas=2 # scale that to 2 replicas  
 
+##
 
-45. Can you scale a kubernetes service?
+
+#### 45. Can you scale a kubernetes service?
 
     Answer: No. You can scale deployments and replicasets
 
+##
 
-46. If you want your kubernetes command to have a scope of ALL namespaces, how do you do that?
+#### 46. If you want your kubernetes command to have a scope of ALL namespaces, how do you do that?
 
     Answer: add -A to the command
 
+##
 
-47. Are environment variables encrypted in Kubernetes? 
+#### 47. Are environment variables encrypted in Kubernetes? 
 
     Answer: No
  
+##
 
-48. By default, can a pod in one namespace talk to another pod in another namespace? 
+#### 48. By default, can a pod in one namespace talk to another pod in another namespace? 
 
     Answer: Yes.
 
+##
 
-49. How to generate a yaml file from an imperative command you know works ? 
+#### 49. How to generate a yaml file from an imperative command you know works ? 
 
     Answer: add: --dry-run=client -o yaml 
 
+##
 
-50. Write a kubectl command to Create a static pod, have it run a command (so it does not exit). dryrun so that you get yaml file saved : 
+##### 50. Write a kubectl command to Create a static pod, have it run a command (so it does not exit). dryrun so that you get yaml file saved : 
 
     Answer: kubectl run static-busybox --image=busybox --command sleep 1000 --dry-run=client -o yaml > static-pod-busybox.yaml
 
+##
 
-51. By default, where does yaml files for static POD files go:  
+#### 51. By default, where does yaml files for static POD files go:  
 
     Answer: /etc/kubernetes/manifests/  (on the node)
 
+##
 
-52. What is a static pod?
+
+#### 52. What is a static pod?
 
     Answer: This is from official documentation.  Static Pods are managed directly by the kubelet daemon on a specific node, without the API server observing them.
 
+##
 
-53. Kubectl command to take all the details for a.yaml file and create the resource it tells API to crate: 
+#### 53. Kubectl command to take all the details for a.yaml file and create the resource it tells API to crate: 
 
     Answer: kubectl apply -f a.yaml  
 
