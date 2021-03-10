@@ -1303,101 +1303,117 @@
 
       Answer:  False. They are set at container level.
 
+##
 
-
-172. Explain what is meant by resource request and resource limits setting.
+#### 172. Explain what is meant by resource request and resource limits setting.
 
      Answer: 
        Request: amount of resources a container asks for and scheduler only schedules IF that amount IS available on a node. ("entrypoint")
        Limit: container is killed or throttled IF a container ever tries to get this much resource.("bad boy level")
 
+##
 
-173. How to filter "kubectl get pods" output by label?
+#### 173. How to filter "kubectl get pods" output by label?
 
      Answer:  kubectl get pods -l env=dev
          (to filter by label env matching "dev")
 
+##
 
-174. How to "deploy" 3 exact same pods (via YAML file)  
+#### 174. How to "deploy" 3 exact same pods (via YAML file)  
 
      Answer: In the spec section of the yaml: (for pod)
              spec:
                replicas: 3
 
+##
 
-
-175. True/False: A POD is not a scalable unit (imperatively). A Deployment that schedules PODs is.
+#### 175. True/False: A POD is not a scalable unit (imperatively). A Deployment that schedules PODs is.
 
      Answer: True 
 
+##
 
-176. Why would you have many Deployments work together in the virtual network of the cluster?
+#### 176. Why would you have many Deployments work together in the virtual network of the cluster?
 
      Answer: There are many use cases for this. One example would be to deploy many micro-services. Each micro-service would be a deployment. 
 
+##
 
-177. To expose a pod so that users can get to it, you need to create ________ ?
+#### 177. To expose a pod so that users can get to it, you need to create ________ ?
 
      Answer: Service
 
+##
 
-178. You can think of Ingress as ________
+#### 178. You can think of Ingress as ________
 
      Answer: Layer 7 LB  (or AWS API Gateway)
 
+##
 
-179. Deployments are meant to contain stateless services. If you need to store a state you need to create ________ instead (e.g. for a database service).
+#### 179. Deployments are meant to contain stateless services. If you need to store a state you need to create ________ instead (e.g. for a database service).
 
      Answer: StatefulSet
 
+##
 
-180.  How do you see which pods or nodes are using the most resources?
+#### 180.  How do you see which pods or nodes are using the most resources?
 
     Answer: kubectl top pod   OR
             kubectl top nodes
 
+##
 
-181.  Can a POD span more than 1 "node" ?
+#### 181.  Can a POD span more than 1 "node" ?
 
       Answer: No
 
+##
 
-182. Does a Pod always get an IP?
+#### 182. Does a Pod always get an IP?
 
      Answer: Yes
 
+##
 
-183. Let's say that you want to add a "sleep" command to your container. Where does that go in the YAML file?
+#### 183. Let's say that you want to add a "sleep" command to your container. Where does that go in the YAML file?
 
      Answer: in spec section:  command: ['sleep']
 
+##
 
-184. What is the format for ConfigMap?
+#### 184. What is the format for ConfigMap?
 
      Answer: key-value pair (just like almost anything else :-) )
 
+##
 
-185. Can you edit any live object using "kubectl edit" command?
+#### 185. Can you edit any live object using "kubectl edit" command?
 
      Answer: No
 
+##
 
-186. Command to edit the configuration of a live pod:
+#### 186. Command to edit the configuration of a live pod:
 
      Answer: kubectl edit pod foo
+##
 
-
-187. Command to delete a running pod:
+#### 187. Command to delete a running pod:
 
      Answer: kubectl delete foo
 
-188. What dictates how much resources does a container get?
+##
+
+#### 188. What dictates how much resources does a container get?
 
      Answer: request and limit parameters
 
+##
 
-189. Pods come and go. So, how in the world, does Kubernetes provide any real service?
+#### 189. Pods come and go. So, how in the world, does Kubernetes provide any real service?
 
      Answer: Service's IP NEVER changes. You can point DNS to it. Behind the "service" are the ephemeral pods.
 
-
+##
