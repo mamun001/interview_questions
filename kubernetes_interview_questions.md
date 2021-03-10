@@ -44,14 +44,16 @@
 
 ##
 
-3.  There are more than one way to implement Ingress? What did you use to implement Ingress?
+#### 3.  There are more than one way to implement Ingress? What did you use to implement Ingress?
 
     Answer:  So, ingress is IMPLEMENTED by Ingress Controllers. There are at least 12.
              Most common is a Load Balancer. Another popular one is Nginx Ingress Controller.
              See below for a longer list.
 
 
-4. Why do we need Kubernetes? What problems does it solve?
+##
+
+#### 4. Why do we need Kubernetes? What problems does it solve?
 
      Answer: As soon as we decide to use docker/container as platform, we run into new issues such as:
               a. orchestration
@@ -63,6 +65,8 @@
               and more
 
               Kubernetes solves these problems.
+
+##
 
 5. What is the different between Ingress and Ingress Controller:
 
