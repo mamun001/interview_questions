@@ -436,13 +436,15 @@
 
     Answer: kubectl apply -f a.yaml  
 
+##
 
-54. Kubectl command to list all the pods in foo namespace: 
+#### 54. Kubectl command to list all the pods in foo namespace: 
 
     Answer: kubectl get pods -n foo
 
+##
 
-55. There is pod named foo. it is in crashloopbackoff state. How to find the cause using a kubectl command? 
+#### 55. There is pod named foo. it is in crashloopbackoff state. How to find the cause using a kubectl command? 
 
     Answer: kubectl describe pod foo
 
@@ -450,8 +452,9 @@
 
     What you might see is for example, container's "command" has a mispelling in it. (Just an example)
 
+##
 
-56. Scenario Question: You have a container that keeps crashing because its "command" section has a misspelling. How do you fix this?
+#### 56. Scenario Question: You have a container that keeps crashing because its "command" section has a misspelling. How do you fix this?
 
     Answer:
       1. generate the yaml file, 
@@ -459,81 +462,94 @@
       3. kill the pod, 
       4. re-run with the correct yaml file (kubectl apply -f)
 
+##
 
-57. How to get a yaml file out of running/crashing pod? 
+#### 57. How to get a yaml file out of running/crashing pod? 
 
     Answer: kubectl get pod foo -o yaml > foo.yaml 
 
+##
 
-58. How to terminate a running pod? 
+#### 58. How to terminate a running pod? 
 
     Answer: kubectl delete pod foo
 
+##
 
-59. Command to see a list of running pods in the default namespace: 
+#### 59. Command to see a list of running pods in the default namespace: 
 
     Answer: kubectl get pods 
 
+##
 
-60. Kubectl command to make a new yaml file for a service by exposing a already running deployment that runs a pod  
-    Name of the deployment: foo
+#### 60. Kubectl command to make a new yaml file for a service by exposing a already running deployment that runs a pod.  Name of the deployment: foo.
 
     Answer: Kubectl expose deployment foo --name foo-service --type=NodePort --port 8080 --target-port=8080 --dry-run=client -o yaml > svc.yaml
 
+##
 
-61. jsonpath example of getting "everything"  (about nodes)  
+#### 61. jsonpath example of getting "everything"  (about nodes)  
 
     Answer: kubetcl get nodes -o jsonpath='{.items[*]}'   # everything, so tons of data
             * Thing to remember is syntax starts out like awk (single quote and swiggly bracket and then follows dots for JSON levels and [] for lists.
 
+##
 
-62. jsonpath example of getting just the level "status" for all nodes 
+#### 62. jsonpath example of getting just the level "status" for all nodes 
 
     Answer: kubectl get nodes -o jsonpath='{.items[*].status}'   # quite a bit of data comes back
 
+##
 
-63. jsonpath comamnd to get only status.nodeInfo of each node  
+#### 63. jsonpath comamnd to get only status.nodeInfo of each node  
 
     Answer: kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo}'   # better, more managable amount of data
 
+##
 
-64:  Your computer has no access to internet. Which kubectl command  can you use to find out syntax of making a pv.yaml : 
+#### 64:  Your computer has no access to internet. Which kubectl command  can you use to find out syntax of making a pv.yaml : 
 
      Answer: kubectl explain pv --recursive  # to find out syntax of making a pv.yaml
 
+##
 
-65. What is the different between PV and PVC?
+#### 65. What is the different between PV and PVC?
 
     Answer: PV is basically a disk volume of some sort.  PVC is a link between that volume and a pod.
 
+##
 
-66. Kubectl command to get a list of PVs
+#### 66. Kubectl command to get a list of PVs
 
     Answer: kubectl get pv   
 
+##
 
-67. Kubectl command to get detail about a PV   
+#### 67. Kubectl command to get detail about a PV   
 
     Answer: kubectl describe pv foo  
 
+##
 
-68. How does the Master server talk to etcd ?
+#### 68. How does the Master server talk to etcd ?
 
      Answer: It makes a call etcd (runs on localhost in most cases). To do that, it authorizes itself with etcd using 2 certs and 1 key.
                AND sends commands to etcd.
              On the master node, the file that has these configs is at : /etc/kubernetes/manifests/etcd.yaml
              That file in turn , points to the 2 cert files and 1 key file.
 
+##
 
-69. Some example of commands the master server can send to etcd (once authenticated with certs and key):
+#### 69. Some example of commands the master server can send to etcd (once authenticated with certs and key):
 
      Answer:
        member list
        snapshot save /tmp/etcd-backup.db
        snapshot status /tmp/etcd-backup.db -w table
 
+##
 
-70. Steps to create a pod called foo with image redis with CPU Request set to 2 CPU and Request as 400MiB
+#### 70. Steps to create a pod called foo with image redis with CPU Request set to 2 CPU and Request as 400MiB
 
 
        Answer:
@@ -545,66 +561,79 @@
             memory: 400MiB
          c. kubectl apply -f ./foo.yaml
 
+##
 
-71. True or False: POD DEFINITION (yaml) ONLY points to PVC (claim), it does not refer to the PV anywhere. 
+#### 71. True or False: POD DEFINITION (yaml) ONLY points to PVC (claim), it does not refer to the PV anywhere. 
 
      Answer: True
 
+##
 
-72. Kubectl command to create deployment with busybox version 1.13  
+#### 72. Kubectl command to create deployment with busybox version 1.13  
      
      Answer: kubectl run foo-deploy --image=busybox:1:13 --replica=1 --record  # create deployment w busybox 1.13
 
+##
 
-73. kubectl command to look at deployment's history: 
+#### 73. kubectl command to look at deployment's history: 
    
      Answer: kubectl rollout history deployment foo-deploy # look at deployment's history  
 
+##
 
-74. kubectl command to change the image version of a deployment on the fly:  
+
+#### 74. kubectl command to change the image version of a deployment on the fly:  
 
      Answer:  kubectl set image deployment/foo-deploy busybox:latest --record # CHANGE THE IMAGE VERSION
 
+##
 
-75. Kubectl command to a list of existing deploymnets 
+
+#### 75. Kubectl command to a list of existing deploymnets 
 
     Answer: kubectl get deployments    
 
+##
 
-
-76. Why do you need certificates in Kubernetes, anyway?
+#### 76. Why do you need certificates in Kubernetes, anyway?
 
      Answer: For one thing, the API server won't talk to you , if you don't have a signed client certificate. So, any client who wants to do ANYTHING with the API server (e.g. even kubectl) better have a signed certificate!
 
      Please read:  https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/
 
+##
 
-77. Why are .csr files have CSR extension?
+#### 77. Why are .csr files have CSR extension?
 
      Answer: CSR = Certificate Signing Request.  
              For example A needs B to give A a signed certificate SO THAT A can later talk to B using that certificate. A will send a CSR (Certificate Signing Request) to B. The file that A sends to be will be CSR and thus will have .csr extension.
 
              Please read:  https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/
 
+##
 
-78. Why does Kubernetes have certificate API ?
+#### 78. Why does Kubernetes have certificate API ?
 
      Answer: So that the certificate signing process can be automated end to end.
 
-79. What's an easy way lookup kubernetes documenation on the fly simply using kubectl command?
+##
+
+#### 79. What's an easy way lookup kubernetes documenation on the fly simply using kubectl command?
 
      Answer: kubectl explain   
 
+##
 
-80. Kubernetes Security: How are some of the ways you can protect your container images?
+#### 80. Kubernetes Security: How are some of the ways you can protect your container images?
 
      Answer:
        a. Update them (to get latest security patches at the OS level)
        b. Scan them regularly
        c. Sign them digitally
 
+##
 
-81. Can you think of some general areas of Kubernetes where you would want to think about security:
+#### 81. Can you think of some general areas of Kubernetes where you would want to think about security:
 
      Answer:
        a. Your container images
@@ -615,20 +644,24 @@
        f. Kubernetes Certificates
        g. RBAC entities
 
+##
 
-82. Processes within a container: How to they (security-wise) talk to API server running on the master node?
+#### 82. Processes within a container: How to they (security-wise) talk to API server running on the master node?
 
      Answer: Using a Kubernetes Service Account
 
+##
 
-83. What does base64 command do?
+#### 83. What does base64 command do?
 
      Answer: it "encodes" a file or strings.
 
      Note: The reason why this is related to Kubernetes is that sometimes you use this command to encode soemthing before putting it in the yaml file.
 
+##
 
-84. How do you generate a CSR within the Kubernetes system?
+
+#### 84. How do you generate a CSR within the Kubernetes system?
 
      Answer: 
        a. create a .csr file
@@ -636,216 +669,246 @@
        c. create a yaml file (Kind: CertificateSigningRequest) using the encoded CSR
        d. kubectl apply -f CertificateSigningRequest.yaml
 
+##
 
-85. If you have created CertificateSigningRequest, but you have not approved it yet, what status do you get if you run "kubectl get csr" command?  
+#### 85. If you have created CertificateSigningRequest, but you have not approved it yet, what status do you get if you run "kubectl get csr" command?  
 
      Answer: You will see that the request is in "pending state"
 
+##
 
-86. Command to approve a CSR? 
+#### 86. Command to approve a CSR? 
 
      Answer: kubectl certificate approve foo-csr   
       
        Example output:  certificatesigningrequest.certificate.k8s.io/foo-csr approved
 
+##
 
-87. Kubectl command to create role:
+#### 87. Kubectl command to create role:
 
      Answer:  kubetcl create role
 
        A detailed example: kubectl create role foo --resource=pods --verb=create,list,get,update,delete --namespace=development
                            role.rbac.authorization.k8s.io/foo created
 
+##
 
-88. Command to describe a role: 
+
+#### 88. Command to describe a role: 
 
      Answer: kubectl describe role foo -n foo_namespace  
 
+##
 
-89. Why is important to keep etcd secure and encrypted?
+#### 89. Why is important to keep etcd secure and encrypted?
 
      Answer: etcd data store all your Kubernetes data including Kubernetes secrets
 
+##
 
-90. Which component of Kubernetes has to have "certificate authority" ?
+#### 90. Which component of Kubernetes has to have "certificate authority" ?
 
      Answer: Master Node  (because clients will authenticate with the API server using client certificates)
 
+##
 
-91. 3 Steps for creating a CA (Certificate Authority) on master node?
+#### 91. 3 Steps for creating a CA (Certificate Authority) on master node?
 
     Answer: (On a managed Kubernetes like GKE and EKS, you don't need to do this):
       a. create a private key
       b. create CSR
       c. self-sign the CSR
 
+##
 
-92. Can you run etcd over HTTP?
+#### 92. Can you run etcd over HTTP?
 
   Answer: Yes, but horrible idea, basically all traffic do and from etcd will not be encrypted
 
+##
 
-93. Command to insert and Key-Value (foo=bar) pair into etcd?
+### 93. Command to insert and Key-Value (foo=bar) pair into etcd?
 
   Answet: etcdctl put foo "bar"
 
+##
 
-94. When you tell Kubernetes to run a pod, who decides which node gets that pod?
+#### 94. When you tell Kubernetes to run a pod, who decides which node gets that pod?
 
   Answer: Scheduler
 
+##
 
-95. What if you don't like the default scheduler that comes with Kubernetes?
+#### 95. What if you don't like the default scheduler that comes with Kubernetes?
 
   Answer: You can always run your own schdeluer
 
+##
 
-96. If a node has taint, what you have to do to your pod, for it to be able to run on that node?
+#### 96. If a node has taint, what you have to do to your pod, for it to be able to run on that node?
 
   Answer: You have to give the pod the same toleration
 
+##
 
-97. If you want a pod to run on specific node, which feature do you have to use?
+#### 97. If you want a pod to run on specific node, which feature do you have to use?
 
   Answer: Node Affinity
 
+##
 
-98. If we already have a liveness probe, why do we need a readiness probe?
+#### 98. If we already have a liveness probe, why do we need a readiness probe?
 
   Answer: There are times, when a container fails liveness probe and yet we do not want to container to be killed. For example, if a container takes time to ready (loads large data set). In this case, liveness probe would fail and (without a readiness probe), Kubernetes would kill the container. A readiness probe tell Kubernetes to wait for the container finish doing all its prep work.
 
+##
 
-99. What does it mean for Kubernetes to drop support for Docker?
+#### 99. What does it mean for Kubernetes to drop support for Docker?
 
   Answer: Best answer is given here:  https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/ . Summary is that, you would have switch to other run time (e.g. containerd or CRI-O) by the time Kubernetes 1.22 comes around. 
 
+##
 
-100. What is "logging driver" ?
+#### 100. What is "logging driver" ?
 
   Answer: Docker has the ability to send logs to various places (e.g. awslogs or fluent and many more). Each one of these is a logging driver.
 
+##
 
-101. Which component collects and aggregates the metrics ?
+#### 101. Which component collects and aggregates the metrics ?
 
   Answer: cAdvisor (which is part of kubelet on worker nodes)
             Those are then sent to Metric Server (running on master nodes). Metrics Server exposes them via kube-api (also running on the master node)
 
+##
 
-102. When you run "kubetcl top", which component are you talking to?
+#### 102. When you run "kubetcl top", which component are you talking to?
 
      Answer: kube-api (which gets its data from metric server)
 
+##
 
-103. By default, conatiner runs with with what UID?
+#### 103. By default, conatiner runs with with what UID?
 
      Answer: 0  (i.e. root).  This can be potentially bad, in case container is somehow able to get a hold of the host OS.
 
+##
 
-
-104. What is the idea behind "Security Context" ?
-
+#### 104. What is the idea behind "Security Context" ?
 
      Answer: Security Context is what level of permissions we give the container as it runs. BY default, it runs with UID 0, which is potentially bad. Be using runAsUser, runAsGroup and fsGroup, we can limit what can the container do on the host. This is "Security Context"
 
+##
 
-
-105. What is "Ambassador Pattern" ?
-
+#### 105. What is "Ambassador Pattern" ?
 
      Answer: When the sidecar proxy's the connections from the main container to the outside world.
 
+##
 
-106. What is "Adapter Pattern" ?
+#### 106. What is "Adapter Pattern" ?
 
      Answer: When the sidecar re-formats the output of the application running on the main container to another desired format.
                This way, you don't have to re-write the application code when there is need to re-format the output for some other system to consume.
 
+##
 
-107. Can you describe a use-case where the ambassador pattern can be of use?
+#### 107. Can you describe a use-case where the ambassador pattern can be of use?
 
      Answer: If you have legacy application which cannot be modified, BUT you have a need to change to the port on which this app needs to listen on, the ambassador container can listen on the new port and pass on the traffic to the old port which did not get modified.
 
+##
 
-108. What is the difference between a label and selector?
-
+#### 108. What is the difference between a label and selector?
 
      Answer: Labels are basically tags. Selectors use key-value pairs to pick out objects (e.g. pods) to work on.
 
+##
 
-109. What is a network policy in Kubernetes?
+#### 109. What is a network policy in Kubernetes?
 
      Answer: A network policy is equivalent to a Security Group in AWS. You define who can talk to who via network policy.
 
+##
 
-110. Network Policies often rely on what?
+#### 110. Network Policies often rely on what?
 
     Answer: labels and selectors
 
+##
 
-111. When do maxSurge and maxUnavailable come in to play?
+#### 111. When do maxSurge and maxUnavailable come in to play?
 
     Answer: In Rolling Updates of Deployments.
             maxSurge tells Kubernetes how many (or percent) extra pods it can create during rolling update.
             mxUnavailable tells Kubernetes how many (or percent) pods can be unavailable during the rolling uodate.
 
+##
 
-112. Why do we need HPA when we already have maxSurge and maxUnavailable?
-
+#### 112. Why do we need HPA when we already have maxSurge and maxUnavailable?
 
     Answer: HPA is an autoscaling thing. maxSurge and maxUnavailable only apply during rolling updates.
 
+##
 
-113. Difference between Service Port and Target Port?
-
+#### 113. Difference between Service Port and Target Port?
 
      Answer: Service Port is where users come to get the micro-service. Target Port is the port of the container/pod where the application listens and exposes. 
 
+##
 
-114. You are configuring a service and you have made a mistake with labels and/or selectors. How does this manifest itself often?
+#### 114. You are configuring a service and you have made a mistake with labels and/or selectors. How does this manifest itself often?
 
      Answer: You will see the service and there will be no endpoint.
 
+##
 
-115. You are logged in to conext via kubectl on your Mac. How can you see if you have permission to update pods? 
+#### 115. You are logged in to conext via kubectl on your Mac. How can you see if you have permission to update pods? 
 
        Answer: kubectl auth can-i update pods   
                (You get back: yes)
 
+##
 
-116. Let's say you manage 100 GKE Clusters. You want to run a kubectl command. How do you make sure your command will be executed on the right cluster?
+#### 116. Let's say you manage 100 GKE Clusters. You want to run a kubectl command. How do you make sure your command will be executed on the right cluster?
 
-     Ans: You will have 100 contexts (one for each cluster you have logged in to). You must switch to to the right context before running the command.
-          There is a open-source CLI tool called kubectx that helps you with this.
+     Answer: You will have 100 contexts (one for each cluster you have logged in to). You must switch to to the right context before running the command.  There is a open-source CLI tool called kubectx that helps you with this.
 
+##
 
-117. What is a super quick way to create a service?
+#### 117. What is a super quick way to create a service?
 
      Answer: Using a kubectl expose command
 
         Example: kubectl expose pod foopod --name=fooservice --port=80 --target-port=80 --type=ClusterIP
                  :: service/ngnix-resolver-service exposed
 
+##
 
-118. How does Kubernetes do DNS interally?
+#### 118. How does Kubernetes do DNS interally?
 
        Ans: kube-system namespace has pod(pods) that DNS servers.
             You can see them by running: kubectl get po -A | grep dns
 
+##
 
-119. If you are on a node, how do you look for running container? 
+#### 119. If you are on a node, how do you look for running container? 
 
      Answer:  docker ps | grep nginx     (for example)
               (Just like you would on your Mac or pc)
 
+##
 
-120. Let's say you know how to run a pod via command line. You can do this very easily because you have done it many times. Given that, how can you quickly generate a YAML file for doing the same thing?
+#### 120. Let's say you know how to run a pod via command line. You can do this very easily because you have done it many times. Given that, how can you quickly generate a YAML file for doing the same thing?
 
     Answer:  add -o yaml AND --dry-run options to the same command.
              This will spit out the YAML file on your terminal.
              You can also redirect that to a file.
 
+##
 
-121. You ran: kubectl get po foo -o yaml > foo.yaml .  The problem is that this YAML file has lots on info about the running pod in addition to the "core" yaml content need.
+#### 121. You ran: kubectl get po foo -o yaml > foo.yaml .  The problem is that this YAML file has lots on info about the running pod in addition to the "core" yaml content need.
        How do you get a clean YAML file out of this?
 
        Answer: You can delete most of those lines (e.g. the status fields and many others)
