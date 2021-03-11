@@ -1,6 +1,6 @@
 
 
-# ................... Unix Interview Questions For Junior DevOps Engineer  ....................
+# .......... Unix Interview Questions For Junior DevOps Engineer  .........
 
 ## By  Mamun Rashid :: https://www.linkedin.com/in/mamunrashid/ :: Please connect with me.
 
@@ -16,8 +16,7 @@
 
 #####     Your answer would be uniqe to your experience, but, here are some possibilities.
 
-
-######     a. Installed Unix on VMs
+           a. Installed Unix on VMs
            b. Searched through logs for issues on VMs
            c. Installed packages 
            d. Configured applications
