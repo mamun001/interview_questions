@@ -142,17 +142,52 @@
 
 ##
 
-    14. What is a thread and why do we need it?
+#### 14. What is a thread and why do we need it?
 
-    15. How do you troubleshoot a network problem (e.g. your host cannot reach mysql server)? This comes up all the time!
+         Answer: 
+           Way back when all processes were single-threaded. What this means is that a process would run "one thing" at a time and until the CPU was done with computation, it would just have to wait for next instruction (task). This made "processing" slow. But later, machines came with multiple CPUs (sometimes called "cores"). Then, it was possible for processes to execute multiple tasks all at once. This is called MULTI-THREADING. This made parallel processing possible. This made processing much faster.
 
-    16. What is quick way to see what busy your Unix Machine is?
+           Although, this is NOT a Unix-only concept, it is an important concept to know.
 
-        w, uptime, top
+           By the way, there is a command called "strace" that lets your track all the threads on a SINGLE process running on your Unix VM.
 
-    17. Your machine is slow. How to troubleshoot this? This comes up all the time!
+## 
 
-    18. 3 steps of TCP handshake?
+#### 15. How do you troubleshoot a network problem (e.g. your host cannot reach mysql server)? This comes up all the time!
+
+         Answer:
+           This is where understanding the OSI layers is so important.
+           Let's say your VM is called A, and the mysql server is called B.
+
+           OSI Layer 1-3:  Can you ping B from A? If not, you have to troubleshoot Layers 1-3 (e.g. physical cable, routing etc.)
+           OSI Layer 4: Can you telnet (or nc) to port 3306 of server B? If not, check that server B has mysql running and is allowing port 3306 to be open.
+           OSI Layer 4: Firewall: Is there any firewall rule blocking your traffic?
+
+##
+
+#### 16. What is quick way to see what busy your Unix Machine is?
+
+         Answer:
+           There are a few commands that can help you with this.
+           For example: w, uptime, top
+
+#### 17. Your machine is slow. How to troubleshoot this? This comes up all the time!
+
+     Answer:
+       Generally , there are 4 major factors that can make a server slow:
+        a. CPU usage
+        b. Memory (RAM) usage
+        c. DISK I/O too heavy
+        d. Some kind of network hit or DDOS attack forcing overload of one or more of the 3 factors.
+
+      For CPU, you can use "top" command.
+      For Memory, you can also use "top" command.
+      For Disk I/O, you can use vmstat or iostat commands
+      For DDOS atatck, you can use "netstat" command to see how many connections are hitting your Unix VM.
+
+##
+
+####    18. 3 steps of TCP handshake?
 
     19. TCP vs UDP. This comes up all the time?
 
