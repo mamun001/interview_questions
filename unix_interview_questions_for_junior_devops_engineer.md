@@ -314,10 +314,27 @@
 
 ##
 
-####    32. Where does Chef or Puppet or Ansible fit in your stack of OS and Application
+#### 32. Where does Chef or Puppet or Ansible fit in your stack of OS and Application?
 
-    33. how do you get a list of port listening on a server
+     Answer:
+         Chef , Puppet and Ansible are examples of "Configuration Management". These tools make anything that goes on top of the Unix Operating Systems.
+         For example, if you are building a web server, you will want to install Apache Web Server and give it come configuration. You can automate those with Chef/Puppet/Ansible.
+         This way, you can build the server a thousand times and each one will be built the exact same way. This concept, by the way, is called "immutable".
+     
+##
 
-    34. How do you test if another server is listening on port 443?
+#### 33. How do you get a list of port listening on your Unix Server?
+
+     Answer:
+       netstat -an | grep LISTEN
+
+##
+
+#### 34. How do you test if another server  (B) is listening on port 443 when you are logged in on Server A?
+
+     Answer:
+       telnet serverBs_name_or_IP 443  OR
+       nc serverBs_name_or_IP 443
+
 
 
