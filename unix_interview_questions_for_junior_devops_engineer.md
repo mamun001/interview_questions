@@ -85,17 +85,62 @@
 
 ##
 
-#### 8. Difference between hard link and soft link.
+#### 8. Difference between hard link and soft link?
 
-    9. Port for mysql
+     Answer:
+       This is kind of an advanced question. First of all, a "link" is pointer from one place in the File System to another folder or file somewhere else.
+       You create a link, when , for whatever reason, you don't want to move the original file. So, you just point to it, so that that file can be gotten to from both places.
 
-    10. Use for netstat
+       A hard link can only be made to a file or folder in the SAME File System.
+       A soft link go across File Systems.
 
-    11. Use for tracert
+       Also, you "delete" a hard link, the original file is also deleted. 
 
-    12. Use for ping
+##
 
-    13. What is inode?
+#### 9. What is the port for MySQL?
+
+        Ans: 3306
+
+##
+
+#### 10. What is thge port for PostgreSQL?
+
+         Ans: 5432
+
+##
+
+#### 11. What command can you use to see all the network connections on Unix VM?
+
+     Answer:
+       netstat
+       e.g. netstat -a
+
+##
+
+#### 12. What command can you use to see the "Routing Table" on your Unix VM?
+
+        Answer: netstat -nr
+
+##
+
+#### 13. What command can you use to see what path a packet takes from your Unix VM to another host?
+
+        Answer: traceroute
+
+##
+
+#### 14. You have 2 servers A and B. You suspect that network communication is broken between them. What should be your first step for troubleshooting?
+
+         Answer: ping A from B or B from A
+
+##
+
+#### 15. What is inode?
+
+         Answer: Files and directories are represented internally with "inodes". Unix Kernel allows a maximum of them. You can run out of inodes before you run out of disk space.
+
+##
 
     14. What is a thread and why do we need it?
 
