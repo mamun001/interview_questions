@@ -186,36 +186,135 @@
 
 ##
 
-####    18. 3 steps of TCP handshake?
+####  18. 3 steps of TCP handshake?
 
-    19. TCP vs UDP. This comes up all the time?
+      Answer:
+        1. Server A reaches out to Server B
+        2. Server B says "I hear you"
+        3. Server A says "I alos hear you"
+             Then the actual communication begins.
 
-    20. Give me an example of each OSI Layer (not unix question, but related)
+##
 
-     21. What is a LAMP Stack?
+#### 19. What is the difference between TCP vs UDP? This comes up all the time.
 
-    22. What processes are running on your VM?
+     Answer: 
+       TCP is connection-based
+       UDP is connection-less.
+       What this means is that:
+        With TCP, a connection (3-way handshake) is established first before sending real data.
+        With UDP, server A sends that data to server B anyway. It does not ensure that B is actually receiving anything. Its like throwing a package out the window hoping the person gets it, but does not see if the person actually got it.
 
-     23. What is parent process vs child process?
+## 
 
-   24. What is sudo?
+#### 20. Give me an example of each OSI Layer (not a Unix question, but related and it helps you answer other questions better)
 
-   25. How do you terminate a process? What is still does not die?
+     Answer:
+       Layer 1: A Physical Cable between two server OR between a server and a Switch
+       Layer 2: DHCP (How a device gets a IP Address automatically)
+       Layer 3: Routing from Server A to Server B. 
+       Layer 4: Firewall Rules incorporating "ports"
+       Layer 5: RPC (Remote Procedure Call) + All mechanisms for opening , closing, and keeping track of communication of "sessions" between 2 servers.
+                 A real life comparison would be: If two people are talking to two other people in the same room. Whatever is happening in our brains to keep track, that's session layer.
+       Layer 6: This is mostly about represending data. For example you are watching a video on Youtube. Whatever formating and de-formating of data is happening: is Layer 6.
+       Layer 7: Layer closest to the User. It get data from user and gives it back to the user. For example, if you are watching a Youtube video, Layer 7 is what is taking your search query and playing back the video to you. 
 
+##
 
-   26. grep -r
+#### 21. What is a LAMP Stack?
 
-    27. find
+     Answer:
+       PHP
+       MySQL
+       Apache
+       Linux
 
-    28. du
+       A few years ago, this was very common way to implement an application. Apache web server ran on Linux Machines. It would store its data in a MYSQL database. PHP was the language in which he front-end web pages were written. Because, each of these were open-source (free), it became very common. This is called the LAMP (L + A + M + P) stack.
 
-    29. df -h
+##
 
-    30. ls -R
+#### 22. How can you tell what processes are running on your VM?
 
-    31. What is regular expression?
+     Answer: ps -elf or ps -aux (depending on architecture). First one is , by far, more common these days.  
 
-    32. Where does Chef or Puppet or Ansible fit in your stack of OS and Application
+##
+
+#### 23. What is parent process vs child process?
+
+     Answer: 
+       Often one process will spawn other processes. The new processes are child processes of the first one (parent). The way you know which is which is: your run ps -elf and you will see a column for PID and another for PPID. PPID is the process ID of the parent process that started this one.
+       For example, if the init process spawns a process called FOO, FOO will have a PPID of 1.
+
+##
+
+### 24. What is sudo?
+
+    Answer: 
+      A regular user on a Unix VM has limited powers. But , sometime, a regular user needs power to do things that only "root" can do. In that case, there is a way to do that.
+      For example:
+       1. You are logged in as foo.
+       2. You want to run "init 6" (same as reboot)
+       3. If you run, init 6, it will fail because foo user does not have permission.
+       4. So, instead , you run "sudo init 6". That will work as long as foo user is part of suoders group.
+
+##
+
+#### 25. How do you terminate a process? What is still does not die?
+
+     Answer:
+       kill PID
+       if that does not kill it, you run: kill -9 PID   (PID of the process you want to kill)
+
+##
+
+#### 26. How do you look for a string "foo" in all the files in the current directory and all the directories below it (recursively)?
+
+     Answer: 
+       Use the -r command with grep.
+       For example:   grep -r foo *
+
+##
+
+#### 27. How do you find a file named foo.txt in current directory and all the directories below it?
+
+         Answer:
+           find . -name foo.txt
+
+#### 28. Which command will show which sub-directories and files are taking up the most space from current directory and below?
+
+     Answer:
+       du -sk *
+       (Here k is kilobytes)
+
+##
+
+#### 29. Which command will show you the usage of ALL volumes on your Unix VM in human readable format?
+
+     Answer: 
+       df -h
+
+#### 30. How do you show hidden files?
+
+    Answer:
+      add -a to ls command
+      Example: ls -a  OR ls -la
+
+##
+
+#### 31. What is a regular expression?
+
+     Answer:
+       On majority of Unix commands your argument values can be formatted in such a way that it can match precisely what you are looking for.
+       For example: You can do "ls" or you can do "ls a*". In the second case, you ONLY want files that starts with "a".
+       Turns out that there are many more than just "*. For example you can use ^ to match beginning of lines/names. You can use [] to match a range.
+       Another example:
+         ls [a-c]*
+         This one will only show you files or directories that start with a,b, or c.
+       This is called "Regular Expression". It is a very topic and extremely powerful and can be used in many cases.
+
+##
+
+####    32. Where does Chef or Puppet or Ansible fit in your stack of OS and Application
 
     33. how do you get a list of port listening on a server
 
