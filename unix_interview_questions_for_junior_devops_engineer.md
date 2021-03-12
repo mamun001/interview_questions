@@ -642,8 +642,60 @@
 
 ##
 
-#### 78.  
+#### 78. Which command in Unix let's you take out only certain number characters or words from each line of a text file.
+         For example foo file looks like this:
+         a b c d
+         e f g h
+         i j k l
 
+         This command will let you take (for example) just b f and j (i.e. 2nd word from each line).
+
+         Which command does that?
+
+         Answer:
+           cut 
+
+##
+
+#### 79. There are two very famous string manipulation commands in Unix. So much so that there is whole book just for these two commands. Which are these two commands?
+
+     Answer:
+       sed and awk
+
+##
+
+#### 80. What is the difference between these two cmmands?
+         cat foo
+         cat foo &
+
+         Answer:
+           1st command happens in the foreground and so you see the output on screen.
+           2nd command happens in the background and so you don't see the output on screen.
+
+##
+
+#### 81. What is an exit code?
+
+         Answer: Each process puts out a code before exiting that tells if it was successful or not. If it was not successful, it tries to give you a code that points to a cause.
+                 This is called the "exit code"
+
+## 
+
+#### 82. What does exit code 0 mean?
+
+         Answer:
+           Process was successful.
+
+##
+
+#### 83. What is the shortcut to cd to $HOME?
+
+     Answer:
+       cd ~     (~ means Home Dir)
+
+##
+
+#### 84.
 
    
 
