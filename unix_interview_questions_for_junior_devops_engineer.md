@@ -336,5 +336,137 @@
        telnet serverBs_name_or_IP 443  OR
        nc serverBs_name_or_IP 443
 
+##
+
+#### 35. How do you figure out the IP address of your Unix VM?
+
+     Answer:
+       ifconfig -a
+
+#### 36. Which command can you run to get list of commands you have ran recently?
+
+     Answer: 
+       history
+##
+
+#### 37. Which command can you run to login to Unix server B from Unix server A ?
+
+     Answer:
+       ssh IP_or_hostname_of_server_B
+
+##
+
+#### 38. Which command can you run to figure out how long your Unix has been up?
+
+     Answer:
+       uptime
+
+##
+
+#### 39. Which init level reboots your Unix VM?
+
+     Answer: 
+       init 6
+
+##
+
+#### 40. Which init level powers down your Unix VM?
+
+    Answer:
+      init 0
+
+##
+
+#### 41. You are writing a bash script (a text file). Which directive on the first line of the file tells the kernel that this is a bash script?
+
+    Answer:
+      #!/bin/sh
+
+##
+
+#### 42. Which fancy short cut executes the very last command you ran?
+
+     Answer:
+       !!
+##
+
+#### 43. You just ran "history". In the list you , you see a very long command in line number 43. How can you run the same command again without typing it again?
+
+     Answer:
+       !43
+
+##
+
+#### 44. You have a text file named foo. How can you see the content of that text file without vi or nano.
+
+     Answer:
+       cat foo    OR
+       more foo   OR
+       less foo
+
+##
+
+#### 45. How can you see the first 10 lines of a file named foo?
+
+    Answer: 
+      head foo
+
+##
+
+#### 46. How can you see the last 20 lines of a file named foo?
+
+     Answer:
+       tail -10 foo
+
+##
+
+#### 47. Unix has a concept of a "pipe".  What is a pipe?
+
+     Answer:
+       You can run a command and use the output of that command as input of second command. This is called a pipe.
+       For example:   cat foo | grep john 
+
+##
+
+#### 48. You just installed a new binary called runfoo. But, when you run "runfoo", you get "Command Not Found". What could be the reason?
+
+     Answer: You have not added the location where runfoo is in your PATH variable.
+
+##
+
+#### 49. What is a quick way to print out all your ENVIRONMENT variables on your screen?
+
+     Answer: env
+
+##
+
+#### 50. You have command named kubectl. You run this command all the time and you are tired of typing "kubectl". You would rather type just "k" to run the same command. How can you achieve this?
+
+     Answer: 
+       alias k=kubectl
+
+##
+
+#### 51. Which command can you run to change permission of a file?
+
+     Answer:
+       chmod
+       For example: chmod 700 foo   (makes foo readable, writable and executable only by owner)
+##
+
+#### 52. Which command can your run to change the ownership of a file?
+
+     Answer:
+       chown
+       For example: chown john file1
+
+##
+
+#### 53. You have an environment variable called HOME. How can you see what HOME's value is?
+
+     Answer:
+       echo $HOME
 
 
+##
+ 
