@@ -695,7 +695,141 @@
 
 ##
 
-#### 84.
+#### 84. Command to get the hostname of the server you are on?
+
+     Answer:
+       hostname
+
+##
+
+#### 85. Command to get "type" of machine you are on (e.g. type of OS Kernel, etc)
+
+     Answer: uname -a
+
+##
+
+#### 86. Let's pretend that server you are on has no access to internet. How would you look up how to run a command (options etc.). For example, let's say you want to know all the details about the ls command.
+
+     Answer: 
+       man ls
+
+##
+
+#### 87. What is a quick way to check if the server has connection to the internet?
+
+     Answer:
+       ping www.google.com
+
+##
+
+#### 88. You ran "ping www.google.com" and answer came back "Host not found". What could be the issue?
+
+     Answer:
+       Your DNS is not working. So, your machine could not convert www.google.com to an IP Address.
+
+##
+
+#### 89. This is unrelated to Unix. But, it is useful. What is a way to ping google without using hostname?
+
+     Answer:
+       ping 8.8.8.8    (8.8.8.8 is the IP address of Google's DNS server and they are open to the world)
+
+##
+
+### 90. Which command (besides zip) archives and compresses entire directory (or directories) into one big file?
+
+        Answer: 
+          tar
+
+##
+
+#### 91. Name two files where you can insert commands so that they become part of your profile. For example, your environment variables can be set up this way.
+
+     Answer: 
+       ~/.bashrc AND
+       ~/.bashrc
+
+##
+
+#### 92. Which command can you run to find which IP is your VM's default router?
+
+     Answer:
+       netstat -nr | grep default
+
+##
+
+#### 93. This is not strictly Unix, but it is related and important. Give me an example of a Class B IP address?
+
+     Answer: 
+       10.1.1.1   (Anything in 10.x is class B IP address)
+
+##
+
+#### 93. This is not strictly Unix, but it is related and important. Give me an example of a Class C IP address?
+
+     Answer: 
+       172.168.1.1 (Anything in 172.168 is a class C IP Address)
+
+##
+
+#### 94. Which command can you run to find your MAC Address?
+
+     Answer:
+       ifconfig -a
+
+##
+
+#### 95. This is not purely an Unix question, but it is related and important. What is the difference between a private and public IP address range?
+
+     Answer:
+       A public IP address range: is routed in the internet. So, when do DNS lookup of a server or domain online , you will always get a public IP.
+         For example 8.8.8.8 (Google's DNS server) is a public IP.
+       A private IP address range:  is NOT routed in the internet. You use these addresses for a subnet that is meant to stay internal.
+         For example, any IP in 10.0.0.0/24 range is private IP. No server with those IPs will be reachable on the internet.
+
+##
+
+#### 96. Which tool can you use from Unix termal to sniff packets (equivalent of using wireshark on a PC) ?
+
+     Answer: 
+       tcpdump
+
+##
+
+#### 97. If you want some process or script to run every hour, which Unix tool should you use?
+
+     Answer:
+       cron or crontab
+
+##
+
+#### 98. Which command should your run to see see last 25 logins on your VM?
+
+     Answer:
+       last
+
+##
+
+#### 99. What is a daemon?
+
+     Answer: A process that runs all the time in the background.
+
+##
+
+#### 100. Which daemon facilitates loggin on Unix VM? Because of this daemon, every application doesn't have to implement its own logging solution. Application sends log to this daemon and it takes care of the rest.
+
+     Answer:
+       syslogd
+
+##
+
+#### 101. You have a process that is set up to run at RC level 2 (process A). You have another that is set up to run at RC level 3 (process C). During the boot up process which will come up first? During the shutdown process, which will shut down first?
+
+     Answer: Process B comes up first. Process C shuts down first.
+
+##
+    
+       
 
    
 
