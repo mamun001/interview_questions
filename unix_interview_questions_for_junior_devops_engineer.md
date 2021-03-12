@@ -4,7 +4,7 @@
 
 ## By  Mamun Rashid :: https://www.linkedin.com/in/mamunrashid/ :: Please connect with me.
 
-### Last Updated: 2021.03.10
+### Last Updated: 2021.03.12
 
 ##
 
@@ -467,6 +467,74 @@
      Answer:
        echo $HOME
 
+##
+
+#### 54. Which command shows you which users are logged in on your Unix VM?
+
+     Answer: 
+       who
 
 ##
+
+#### 55. If a file has 644 permissions, who can execute this file?
+
+     Answer:
+       No one. 644 translates to rw-r--r--.  That means no one can execute this file, since there is no "x" permission.
+
+##
+
+#### 56. If a a file has 744 permissions, who can execute this file?
+
+       Answer:
+         Only the owner can. 744 translates to: rwxr--r--  . Owner has "x" permission, so he/she can execute this file.
+
+##
+
+#### 57. Which command can you use to copy a file?
+       
+         Answer: 
+           cp
+           For example: cp foo bar
+
+##
+
+#### 58. Which command can you use to rename a file?
+
+         Answer:
+           mv
+           For example: mv foo bar
+
+##
+
+#### 59. Which option of the cp command can you use to copy over over all the permissions along with the file(s)?
+
+         Answer:
+           cp -p
+
+##
+
+#### 60. You have two different text files with some minor differences between them. File names are foo and bar. Which command will show you the differences?
+
+         Answer:
+           diff foo bar
+
+##
+
+#### 61. Which command will sort your text file (i.e. lines within that file)? File name is foo.
+
+         Answer:
+           sort foo
+
+##
+
+#### 62. You have a text file (foo) that has many repeat lines. How do you get rid of all the duplicates?
+
+         Answer:
+           uniq foo
+
+##
+
+
+   
+
  
