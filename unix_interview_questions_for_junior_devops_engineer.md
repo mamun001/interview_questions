@@ -534,6 +534,116 @@
 
 ##
 
+#### 63. You just started a process from your terminal. Process started and it is not giving you any output on the screen. You don't what it is doing. You want to kill that process. Which keystrokes will kill that process?
+
+     Answer:
+       Control c
+
+##
+
+#### 64. You just started a process from your terminal. Process started and it is not giving you any output on the screen. You don't what it is doing. You do not want to kill that process. You just want to pause the process , so that you can get back your terminal and you can restart or kill that process later if you need to. Which key-strokes can you use to pause that process?
+
+     Answer: 
+       Control z
+
+## 
+
+#### 65. Let's say your pwd is /home/foo. There is a file called bar in /home. What is the relative path to that file?
+
+    Answer:
+      ../bar
+      e.g. ls -l ../bar  OR
+           cat ../bar
+
+##
+
+#### 66. Let's say you have a file on your VM and you don't know what kind of file it is (text , binary, something else) . Which command tells you what kind of file it is? File name is foo.
+
+     Answer: 
+       file foo.
+
+##
+
+#### 67. Very broadly speaking, which directory holds "configurations" ?
+
+     Answer: 
+       /etc
+
+##
+
+### 68. Very broadly speaking, which directory holds "logs" ?
+
+    Answer:
+      /var/logs
+
+##
+
+#### 69. Can you have for loops and while loops in Bash scripts?
+
+     Answer:
+       Yes (and a lot more!)
+
+##
+
+#### 70. Majority of Unix commands have a -v option. What is that for?
+
+     Answer:
+       Sometimes it if for "verbose", meaning it spits out for information that normal (for debugging purposes).
+       Other times, it is to display version of the software.
+
+##
+
+#### 71. Which option of grep makes the search case-insensitive?
+
+     Answer:
+       grep -i
+
+##
+
+#### 72. Which Unix command counts lines, words, and characters in a file?
+
+     Answer:
+       wc
+
+##
+
+#### 73. This is an advanced question. But, it is so handy that even junior people should be aware of it. There is command in Unix that maps files (in use) , ports with processes. This helps tremendosuly in troubleshooting. Which command does this?
+
+     Answer:
+       lsof
+
+##
+
+#### 74. Let's that an application is constantly writing logs to /var/logs/foo file. You want to watch the logs scroll as they are written. Which command can you use?
+
+     Answer:
+       tail -f /var/logs/foo
+
+##
+
+#### 75. Everything you edit a file, it's modification time gets changed. Sometimes, you have a need to change the modification time of a file without actually doing any edits. How do you do that? File name is foo.
+
+     Answer:
+       touch foo
+
+##
+
+#### 76. You have been working on a Unix VM terminal. You are seeing some weird permission issues that you weren't expecting. You wonder which user system thinks you are. Who command shows you who you are on the system?
+
+     Answer:
+       whoami
+
+##
+
+#### 77. Which command shows your UID and GIDs (Group IDs)?
+
+     Answer:
+       id
+
+##
+
+#### 78.  
+
 
    
 
