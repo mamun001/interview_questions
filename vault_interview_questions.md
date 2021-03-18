@@ -12,7 +12,7 @@
 
 #### 1. What have you done with Vault? This question comes up all the time.
 
-        Answer: Of course, the answer will depend on your unique experiences. However, a prepared and practiced answer goes a long way to convince the interviwer that you are well-versed in Vault. Here are some of possible items:
+####        Answer: Of course, the answer will depend on your unique experiences. However, a prepared and practiced answer goes a long way to convince the interviwer that you are well-versed in Vault. Here are some of possible items:
 
    a. Install and Setup Non-prod and prod cluster.
    b. Added users, groups and policies OR
