@@ -36,7 +36,8 @@
 
    Answer:
  
-     All companies have secrets (passwords, SSL certs, keys etc.). Often, these are needed in code to deploy stuff. That is a significant risk, because traces of these secrets linger on in various places (like repos and logs). Vault among other things, provides 3 major values:
+     All companies have secrets (passwords, SSL certs, keys etc.). Often, these are needed in code to deploy stuff. That is a significant risk, because 
+     traces of these secrets linger on in various places (like repos and logs). Vault among other things, provides 3 major values:
 
      a. Secrets can be stored securely in one place and retrieved in an encrypted form to be used once.
 
@@ -143,7 +144,9 @@
 
 ##
 
-#### 12. You have a dynamic secret set up for a database. Lease Time is 24 hours. Developer A does a "vault read" on the correct path. That generates a username and password. Developer A uses that pair to succesfully login to the database. After 1 hour, Developer B (who also has access) does "vault read". Will she get a new pair of username/password or the same one that Developer got?
+#### 12. You have a dynamic secret set up for a database. Lease Time is 24 hours. Developer A does a "vault read" on the correct path. 
+         That generates a username and password. Developer A uses that pair to succesfully login to the database. After 1 hour, Developer 
+         B (who also has access) does "vault read". Will she get a new pair of username/password or the same one that Developer got?
 
      Answer:
 
