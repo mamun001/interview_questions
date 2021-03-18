@@ -144,9 +144,10 @@
 
 ##
 
-#### 12. You have a dynamic secret set up for a database. Lease Time is 24 hours. Developer A does a "vault read" on the correct path. 
-         That generates a username and password. Developer A uses that pair to succesfully login to the database. After 1 hour, Developer 
-         B (who also has access) does "vault read". Will she get a new pair of username/password or the same one that Developer got?
+#### 12. You have a dynamic secret set up for a database. Lease Time is 24 hours. Developer A does a "vault read" on the 
+         correct path.  That generates a username and password. Developer A uses that pair to succesfully login to the 
+         database. After 1 hour, Developer B (who also has access) does "vault read". Will she get a new pair of 
+         username/password or the same one that Developer got?
 
      Answer:
 
@@ -174,14 +175,16 @@
 
    Answer: 
 
-     This is basically an algorithm to safeguard the master key. A certain threshold of shards is required to reconstruct the unseal key, which is then used to decrypt the master key.    
+     This is basically an algorithm to safeguard the master key. A certain threshold of shards is required to reconstruct 
+     the unseal key, which is then used to decrypt the master key.    
 
 ##
 
 #### 16. How does the unseal process work?
 
     Answer:
-      The shards are added one at a time (in any order) until enough shards are present to reconstruct the key and decrypt the master key.
+      The shards are added one at a time (in any order) until enough shards are present to reconstruct the key and decrypt 
+      the master key.
 
 ##
 
@@ -203,14 +206,17 @@
 #### 19. What does that general encryption process look like in Vault?
 
     Answer: 
-      Operator sends a secret AFTER encrypting it using base64 (to ensure safe transit).  Vault then encrypts it again using its internal key before storing it at rest.
+      Operator sends a secret AFTER encrypting it using base64 (to ensure safe transit).  Vault then encrypts it again using 
+      its internal key before storing it at rest.
 
 ##
 
 #### 20. What is this "cubbyhole" thing in Vault?
 
      Answer:
-       When Vault is running for the first time, it gives everyone a PATH where,  by defauly, anyone can save secrets. That is "cubbyhole". Without this, one would have to create a path and change its policy just to test out the function of writing and reading secrets.
+       When Vault is running for the first time, it gives everyone a PATH where,  by defauly, anyone can save secrets. That is
+       "cubbyhole". Without this, one would have to create a path and change its policy just to test out the function of 
+       writing and reading secrets.
 
 ##
 
