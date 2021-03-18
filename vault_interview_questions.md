@@ -673,73 +673,82 @@
 
 ##
 
-92. If you want read replicas for low latency, what do you need?
+#### 92. If you want read replicas for low latency, what do you need?
 
     Answer: 
       Performance Replica
 
+##
 
-93. What kind of replication do you need to prevent against data loss?
+#### 93. What kind of replication do you need to prevent against data loss?
 
     Answer: 
       Diaster Recovery Replication
+##
 
-
-94. How can you get secrets without storing any logic to store tokens and also not making requests with tokens?
+#### 94. How can you get secrets without storing any logic to store tokens and also not making requests with tokens?
 
     Answer: Vault Agent Caching
+##
 
-
-95. What is Vault Agent?
+#### 95. What is Vault Agent?
 
     Answer: 
       Vault agent automatically handles renewal and re-authentication and thus you do not have to implement potentially complicated renewal logic yourself.
 
+##
 
-96. Do you have to be root to unseal Vault?
+#### 96. Do you have to be root to unseal Vault?
 
     Answer:
       NO!
 
+##
 
-97. Do you have to root to enable audit?
+#### 97. Do you have to root to enable audit?
 
     Answer:
       Yes.
 
+##
 
-98. How do you revoke ALL all the leases for secrets on a specific path?
+#### 98. How do you revoke ALL all the leases for secrets on a specific path?
 
     Answer: 
       vault lease revoke -prefix PATH
 
+##
 
-99. Command to renew a token:
+#### 99. Command to renew a token:
 
     Answer: 
       vault token renew   
 
+##
 
-100. Command to enable aws engine:
+#### 100. Command to enable aws engine:
 
      Answer:
        vault secrets enable aws  
 
+##
 
-101. If you revoke a parent token, what happens to its child token?
+#### 101. If you revoke a parent token, what happens to its child token?
 
      Answer:
        Child token is also revoked
 
+##
 
-102. If you disbale a Secret Engine, what happens to all secrets that belong to that Secret Engine?
+#### 102. If you disbale a Secret Engine, what happens to all secrets that belong to that Secret Engine?
 
      Answer: 
        All secrets will be revoked and
       (data will not be archived for later "enabling")
 
+##
 
-103. Name some of the "backends" supported by Vault:
+#### 103. Name some of the "backends" supported by Vault:
 
      Answer:
        A. Consul
@@ -747,135 +756,155 @@
        C. Inmemory
        D. Raft
 
+##
 
-
-104. Which permission do you need to do stuff in UI?
+#### 104. Which permission do you need to do stuff in UI?
 
      Answer: 
        List
 
+##
 
-105. Which type of tokens are recommended for encrypting data within Vault?
+#### 105. Which type of tokens are recommended for encrypting data within Vault?
 
      Answer:
        Batch Tokens
 
+##
 
-106. Name some of the actions Secret Engines can do?
+#### 106. Name some of the actions Secret Engines can do?
 
      Answer:
        A. STORE
        B. ENCRYPT
        C. Generate
 
+##
 
-107. Can "Transit Engine" encrypt data?
+#### 107. Can "Transit Engine" encrypt data?
 
      Answer:
        Yes. This makes sense because , otherwise, secrets will be readable while in transit.
 
-108. Is encoding same as encrypting?
+##
+
+#### 108. Is encoding same as encrypting?
 
      Answer:
        No! Anyone can encode and decode with base64 command.
 
+##
 
-
-109. Can you have a replication set up on different cloud provider than the primary?
+#### 109. Can you have a replication set up on different cloud provider than the primary?
 
      Answer:
        Yes. 
 
+##
 
-110. What can you do if a lease  of a Dynamic Secret expires ?
+#### 110. What can you do if a lease  of a Dynamic Secret expires ?
 
      Answer:
        You have to  generate a new secret because the old secret is gone and so, extending the lease of the old secret doesn't help.
 
+##
 
-111. Name couple of benefits of Vault Agents?
+#### 111. Name couple of benefits of Vault Agents?
 
      Answer:
        1. Caching and 
        2. Renewing
 
+##
 
-112. Can Vault Agents encrypt secrets?
+#### 112. Can Vault Agents encrypt secrets?
 
      Answer:
        NO.
 
+##
 
-113. Name couple of advantages of DEV mode:
+#### 113. Name couple of advantages of DEV mode:
      
      Answer:
        Encryption with TLS
        Persistent backend storage
 
+##
 
-114. When you are writing policies, which two characters can you use as wild-card characters?
+#### 114. When you are writing policies, which two characters can you use as wild-card characters?
 
      Answer:
        * AND
        +
 
+##
 
-115. Can the Transit Secret Engine update a secret?
+#### 115. Can the Transit Secret Engine update a secret?
 
      Answer:
        NO! Transit Engine has no business modifying a secret. It's job is take a secret from once place to another (from at rest to an entity who has permission to seet i).
 
-116. Can the Transit Secret Engine decrypt a secret?
+##
+
+#### 116. Can the Transit Secret Engine decrypt a secret?
 
      Answer:
        Yes. 
 
+##
 
-117. What are the 3 ways to interact with Vault?
+#### 117. What are the 3 ways to interact with Vault?
 
      Answer:
       CLI+ UI + API  (This is true of almost any product these days)
 
-118. Can Vault have plugins?
+##
+
+#### 118. Can Vault have plugins?
 
      Answer:
        Yes.
+##
 
-119.  How can delete a secret?
+#### 119.  How can delete a secret?
 
     Answer: 
       vault delete secret/foo/bar    (Path and Secret Name)
 
-120. Assuming you have the right variable defined, what is quick way to connect to vault server (you are connecting, you are not authenticating) 
+##
+
+#### 120. Assuming you have the right variable defined, what is quick way to connect to vault server (you are connecting, you are not authenticating) 
 
    Answer:
      vault status
 
+##
 
-
-121. Can vault use github and AD for authentican ?
+#### 121. Can vault use github and AD for authentican ?
 
      Answer:
        Yes, Both
 
+##
 
-
-122. Name some of the ways unseal can happen automatcally:
+#### 122. Name some of the ways unseal can happen automatcally:
 
      Answer:
        TRANSIT, AZURE KMS, AWS KMS, HSM
 
+##
 
-123. Name some of the advantages of batch token over service token:
+#### 123. Name some of the advantages of batch token over service token:
 
      Answer:
        A. No storage cost for token creation
        B. Used for ephemeral, high-performance workload
        C. lighteight and scalable
 
+##
 
-
-124. Name some of the ways you can unseal when vault is on-prem:
+#### 124. Name some of the ways you can unseal when vault is on-prem:
 
      Answer:
 
@@ -884,14 +913,15 @@
       C. AWS KMS
       D. Transit
 
+##
 
-125. What should you do with root token so that it does not get compromised?
+#### 125. What should you do with root token so that it does not get compromised?
 
      Answer:
        You should revoke it and generate it again when needed.
        This is kind of like AWS root account keys. You should make other admin accounts and basically keep root account out of reach. You can always re-generate root token when you need it.
 
-
+##
 126. Does Transit Engine STORE any data ?
 
      Answer:
