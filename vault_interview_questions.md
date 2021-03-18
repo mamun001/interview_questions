@@ -17,10 +17,15 @@
    a. Install and Setup Non-prod and prod cluster.
 
    b. Added users, groups and policies OR
+
    c. Incorporated federated logins to Vault clusters.
+
    d. Incorporated Vault Token into Gitlab Pipelines such that gitlab pipelines can run based on automated triggers
+
    e. Tested backup and recovery of Vault Clusters
+
    f. Migrated GCP secrets to Vault from various other places
+
 
 ##
 
