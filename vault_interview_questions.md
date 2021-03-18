@@ -211,68 +211,80 @@
 
 ##
 
-21. When you configure Vault using a configuration file, which 3 parameters must your provide?
+#### 21. When you configure Vault using a configuration file, which 3 parameters must your provide?
 
      Answer:
        A. Cluster Name
        B. Storage Backend
        C. Seal type
 
+##
 
-22. Name some of the advantages of using PKI:
+#### 22. Name some of the advantages of using PKI:
 
      Answer:
        A. Reducing or eliminating certifcate revocations
        B. Reduces time to get certificates by eliminating the need to generte a private key and CSR
        C. Vault can act as an intermediate CA
 
+##
 
-23. What is response wrapping?
+#### 23. What is response wrapping?
 
     Answer: A secret , when retrived, is "wrapped" with ANOTHER token , which can be used ONLY once. This way, the real token cannot be stolen in transit.
             (You can send secret in email if you want, because token can be used only once)
 
+##
 
-24. What default policies do an Empty Policy grant in Vault?
+#### 24. What default policies do an Empty Policy grant in Vault?
 
     Answer: 
       Grants no permission at all.
 
+##
 
-25. Can a service token be used to handle a raw request when Vault is in recovery mode? Why or why not?
+#### 25. Can a service token be used to handle a raw request when Vault is in recovery mode? Why or why not?
 
     Answer:
       No. Because , while in recovery mode, only recovery tokens can be used (by rule of vault operations)
 
+##
 
-26. What are two ways you can join a node to an existing Vault cluster?
+#### 26. What are two ways you can join a node to an existing Vault cluster?
 
     Answer: 
       A. using root certificate and API calls 
       B. Using consul agents running on the new vault nodes
 
+##
 
-27. What is the function of a Google Cloud Storage Bucket when setting up Vault via GCP?
+#### 27. What is the function of a Google Cloud Storage Bucket when setting up Vault via GCP?
 
     Answer:
       It stores all the "data" of vault. (e.g. secrets).
 
+##
 
-28. When using Google Cloud Storage, can multiple vault nodes can have access to this data from the bucket?
+#### 28. When using Google Cloud Storage, can multiple vault nodes can have access to this data from the bucket?
 
     Answer: 
       Yes (same idea as NAS)
 
+##
 
-29. Should your vault cluster be able to run other workloads? Why or why not?
+#### 29. Should your vault cluster be able to run other workloads? Why or why not?
 
     Answer: 
       It can, but it should not. Running other workloads opens up variety of security concerns.
 
-30. Does Transit Secret Engine encrypt?
+##
+
+#### 30. Does Transit Secret Engine encrypt?
  
     Answer: 
       NO
+
+##
 
 31. True/False: Vault Policies and Roles (Roles have policies) just like AWS.
 
