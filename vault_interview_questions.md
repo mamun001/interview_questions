@@ -3,7 +3,7 @@
 
 ##### *Vault is a Hashicorp Product widely used in DevOps.
 
-## By  Mamun Rashid :: https://www.linkedin.com/in/mamunrashid/ :: Please connect with me.
+### By  Mamun Rashid :: https://www.linkedin.com/in/mamunrashid/ :: Please connect with me.
 
 ### Last Updated: 2021.03.18
 
@@ -37,8 +37,9 @@
 
    Answer:
  
-     All companies have secrets (passwords, SSL certs, keys etc.). Often, these are needed in code to deploy stuff. That is a significant risk, because 
-     traces of these secrets linger on in various places (like repos and logs). Vault among other things, provides 3 major values:
+     All companies have secrets (passwords, SSL certs, keys etc.). Often, these are needed in code to deploy stuff. That 
+     is a significant risk, because traces of these secrets linger on in various places (like repos and logs). Vault among 
+     other things, provides 3 major values:
 
      a. Secrets can be stored securely in one place and retrieved in an encrypted form to be used once.
 
@@ -1139,5 +1140,5 @@
 
 
 # .......... 151 Vault Interview Questions  .........
-## By  Mamun Rashid :: https://www.linkedin.com/in/mamunrashid/ :: Please connect with me.
+### By  Mamun Rashid :: https://www.linkedin.com/in/mamunrashid/ :: Please connect with me.
 
