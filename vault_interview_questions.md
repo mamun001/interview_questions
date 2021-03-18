@@ -68,7 +68,7 @@
 
    Answer:
     First of all when you do "vault read secret", it tells you version number, as long as versioning is turned on.
-    Example of retrieving a specific version of a secret: vault kv get -version=1 secret/foo/bar   (get version 1 of this secret)
+    Example of retrieving a specific version of a secret: vault kv get -version=1 secret/foo/bar   get version 1 of this secret
    
 ##
 
