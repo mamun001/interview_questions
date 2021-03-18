@@ -59,14 +59,19 @@
 #### 4. Why can't one secrets engine access data from another secrets engine? 
 
     Answer: 
+
       Beacuse the mechanisms are completely unique for each secret engine. 
+
       Example: GCP engine and AWS engine and Gitlab engine.
+
       Another example: kv engine works completely different than database engine. They are also kept in different PATHs.
+
 ##
 
 #### 5. Can you have "versions" of secrets?
 
    Answer:
+
     First of all when you do "vault read secret", it tells you version number, as long as versioning is turned on.
 
     Example of retrieving a specific version of a secret: vault kv get -version=1 secret/foo/bar  
