@@ -26,7 +26,6 @@
 
    f. Migrated GCP secrets to Vault from various other places
 
-
 ##
 
 #### 2. What problem does Vault solve? What value does Vault add?
