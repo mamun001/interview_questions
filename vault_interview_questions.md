@@ -286,142 +286,170 @@
 
 ##
 
-31. True/False: Vault Policies and Roles (Roles have policies) just like AWS.
+#### 31. True/False: Vault Policies and Roles (Roles have policies) just like AWS.
 
     Answer: True   (same concept)
 
     user/entity ----- gets role --- role is attached to policy -- that policy gives specific permissions
 
+##
 
-32. Can you list some of the capabilities alloted in Vault regarding policies?
+#### 32. Can you list some of the capabilities alloted in Vault regarding policies?
 
     Answer: 
       create, read, update, delete, list, sudo, deny (6)
 
+##
 
-33. Which capability takes precedence above all else?
+#### 33. Which capability takes precedence above all else?
 
     Answer: 
       Deny
 
+##
 
-34. What is cubbyhole?
+#### 34. What is cubbyhole?
 
     Answer: 
       It is an equivalent of "safe place" at home. It is a predefined PATH. All secrets are kept there namespaced under token.
       If the token expires, secret also expires.
 
+##
 
-37. Command to list all enabled AUTHs:
+#### 37. Command to list all enabled AUTHs:
 
     Answer: 
       vault auth list -detailed
 
+##
 
-38. Command to list policies?
+#### 38. Command to list policies?
 
     Answer: 
       vault policy list   (thanks to hashicorp for being counter-intuitive!) (noun + VERB)
 
+##
 
-39. Let's say you run this command: vault list foo, what will vault server do? (Notice VERB before noun)
+#### 39. Let's say you run this command: vault list foo, what will vault server do? (Notice VERB before noun)
 
     Answer: 
       In this case, you put VERB ahead of noun, it will think that "foo" is a path, so, it will try do see if foo/ (even though you did not put / in the end) is enabled and if so, it will give you list of keys in that path.
 
+##
 
-40. Command to write a secret to the path: secret/teams/
+#### 40. Command to write a secret to the path: secret/teams/
        with key=test1 value=junk1
 
     Answer:
       vault write secret/teams test1=junk1
 
+##
 
-41. Environment variable that points to vault server:
+#### 41. Environment variable that points to vault server:
 
     Answer:
       VAULT_ADDR="https://vault.example.com"
 
+##
 
-42. Will vault use ENV variable to find your token?
+
+#### 42. Will vault use ENV variable to find your token?
 
     Answer:
       Yes. VAULT_TOKEN
 
+##
 
-43. Which command will show YOUR TOKEN ID and policies it is attached to: (kind of like whoami and more in linux)
+#### 43. Which command will show YOUR TOKEN ID and policies it is attached to: (kind of like whoami and more in linux)
 
     Answer:
       vault token lookup
 
+##
 
-44. What is Token Accessor?
+#### 44. What is Token Accessor?
 
     Answer:
       It is like a "pointer" or metadata about a token (e.g. TTL etc.)
 
+##
 
-45. Can you make API calls against Vault Server?
+#### 45. Can you make API calls against Vault Server?
 
     Answer: 
       Yes. Vault has API server that you can reach usig curl command:
 
+##
 
-46. curl command to get system health of the vault server:
+#### 46. curl command to get system health of the vault server:
 
     Answer:
       curl -kv $VAULT_ADDR/v1/sys/health
 
+##
 
-47. Which command is basically same as token look up?
+#### 47. Which command is basically same as token look up?
 
     Answer:
       vault read auth/token/lookup-self
       (The point is that token lookup command is just reading from a PATH)
 
+##
 
-48. In vault: "users" are called what?
+#### 48. In vault: "users" are called what?
 
     Answer: 
       Entity Ids
+##
 
-49. Command to list all entity IDs?
+#### 49. Command to list all entity IDs?
 
     Answer:
       vault list identity/entity/id/ 
      (All it is really it is listing a predefined "path")
 
-50. You want auth backend things like GCP/AWS/KV etc. What are these officially called?
+##
+
+#### 50. You want auth backend things like GCP/AWS/KV etc. What are these officially called?
 
     Answers:
       "SECRET ENGINES"
 
-51. Storage Backend is for what ?
+##
+
+#### 51. Storage Backend is for what ?
 
     Answer: vault "data" (e.g. secrets, entities, policies etc?)
 
-52. How can "users" authneticate with vault? Name a few ways.
+##
+
+#### 52. How can "users" authneticate with vault? Name a few ways.
 
     Answer:
      a. tokens
      b. TLS certs
      c.  username/password
       AND MORE
+##
 
-53. What is you wanted to generate a fresh Token for root. Which command do you run?
+#### 53. What is you wanted to generate a fresh Token for root. Which command do you run?
 
     Answer:
       vault operator generate-root
+##
 
-54. When vault stores data (eg. secrets), what does it store with it?
+
+#### 54. When vault stores data (eg. secrets), what does it store with it?
 
     Answer: 
       Data Encryption Key
+##
 
-55. What does vault use to decrypt Data Encryption Key:
+#### 55. What does vault use to decrypt Data Encryption Key:
 
     Answer: Master Key
 
+##
 
 56. Where does the Master key reside ?
 
@@ -588,7 +616,7 @@
 
 88. How do you use AWS KMS instead of Shamir?
 
-    Answer: (zeal vora): "Add a new seal block under the configuration file for KMS and start Vault with that"
+    Answer: Add a new seal block under the configuration file for KMS. Then, start up Vault with that configuration file.
 
 
 89. How many keys do you need to unseal using Shamir (by default)?
