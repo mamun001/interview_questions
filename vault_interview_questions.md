@@ -337,8 +337,7 @@
 
 ##
 
-#### 40. Command to write a secret to the path: secret/teams/
-       with key=test1 value=junk1
+#### 40. Command to write a secret to the path: secret/teams/ with key=test1 value=junk1
 
     Answer:
       vault write secret/teams test1=junk1
@@ -451,67 +450,84 @@
 
 ##
 
-56. Where does the Master key reside ?
+
+#### 56. Where does the Master key reside ?
 
     Answer: 
       In memory (never on persistent disk)
 
-57. How to start vault in dev mode locally:
+##
+
+#### 57. How to start vault in dev mode locally:
 
     Answer:
       vault server -dev
 
-58. Local vault server runs on port:
+##
+
+#### 58. Local vault server runs on port:
 
     Answer: 8200 
 
+##
 
-59. Command to write a KV secret in path path1/kvsecret1 with key and value of foo=bar:
+#### 59. Command to write a KV secret in path path1/kvsecret1 with key and value of foo=bar:
 
     Answer:
       vault kv put path1/kvsecret1 foo=bar
 
+##
 
-60. Command to "read" a kv secret in path path1/secret1 :
+#### 60. Command to "read" a kv secret in path path1/secret1 :
 
     Answer:
       vault kv get path1/secret1
 
-65. Command to delete a secret in path path1/secret1 ?
+##
+
+#### 65. Command to delete a secret in path path1/secret1 ?
 
     Answer: 
       vault kv delete path1/secret1
 
+##
 
-66. Can Vault tackle dynamic cloud secrets?
+#### 66. Can Vault tackle dynamic cloud secrets?
 
       Answer:
         Yes. In fact, this is one the best features of vault.
 
-67. Can Vault tackle PKI Certificates?
+##
+
+#### 67. Can Vault tackle PKI Certificates?
 
       Answer:
         Yes
 
-68. Can Vault tackle Consul and Nomad ACL tokens?
+##
+
+#### 68. Can Vault tackle Consul and Nomad ACL tokens?
 
       Answer:
         Yes
 
+##
 
-69. In a KV V1 policy, can you * in a path?
+#### 69. In a KV V1 policy, can you * in a path?
 
     Answer:
       Yes.
       For example: path "secret1/data/*"
       (I don't think it works recursively , though)
 
+##
 
-70. Is "deny" a capability (in a policy) ?
+#### 70. Is "deny" a capability (in a policy) ?
 
     Answer:
       Yes.
 
+##
 
 71. Most authentication methods have something  that you can tie policies to. What is that called?
 
