@@ -45,10 +45,14 @@
 
 ##
    Answer:
+
      Vault's help is actually very good quality. Here are 3 examples:
+
      a. vault -h   (gets help on vault and list subcommands)
+
      b. vault kv -h (gets help on vault kv and lists subcommands)
-     c. vault kv get -h (gets help on vault kv get)  (testmized):wq
+
+     c. vault kv get -h (gets help on vault kv get)  (testmized)
 
 ##
 
