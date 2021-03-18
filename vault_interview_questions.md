@@ -12,7 +12,9 @@
 
 #### 1. What have you done with Vault?
 
-   Answer: Of course, the answer will depend on your unique experiences. However, a prepared and practiced answer goes a long way to convince the interviwer that you are well-versed in Vault. Here are some of possible items:
+   Answer: 
+
+   Of course, the answer will depend on your unique experiences. However, a prepared and practiced answer goes a long way to convince the interviwer that you are well-versed in Vault. Here are some of possible items:
 
    a. Install and Setup Non-prod and prod cluster.
 
@@ -30,7 +32,8 @@
 
 #### 2. What problem does Vault solve? What value does Vault add?
 
-   Answer: 
+   Answer:
+ 
      All companies have secrets (passwords, SSL certs, keys etc.). Often, these are needed in code to deploy stuff. That is a significant risk, because traces of these secrets linger on in various places (like repos and logs). Vault among other things, provides 3 major values:
 
 ##
@@ -84,13 +87,15 @@
 #### 6. Can you un-delete a secret?
 
      Answer:
+
        Yes. vault kv undelete -version=3 secret/foo/bar 
 
 ##
 
 #### 7. Can you get a docker image of vault server and run it on your Mac?
 
-     Answer: 
+     Answer:
+ 
        docker run --cap-add=IPC_LOCK -e 'VAULT_DEV_ROOT_TOKEN_ID=myroot' -e 'VAULT_DEV_LISTEN_ADDRESS=0.0.0.0:1234' -p 8200:1234 vault
        (here the last word "vault" is the image name and we are setting parameter values on the fly)
        (tested successfully)
@@ -139,28 +144,34 @@
 #### 12. You have a dynamic secret set up for a database. Lease Time is 24 hours. Developer A does a "vault read" on the correct path. That generates a username and password. Developer A uses that pair to succesfully login to the database. After 1 hour, Developer B (who also has access) does "vault read". Will she get a new pair of username/password or the same one that Developer got?
 
      Answer:
+
        Same as Developer A
 
 ##
 
-13. Which command would bring out master key?
+#### 13. Which command would bring out master key?
 
     Answer: 
+
       unseal
 
+##
 
-14. Why do you need to get the "master key" with the unseal command?
+#### 14. Why do you need to get the "master key" with the unseal command?
 
     Answer:
+
        Master key is used the decrypt the encryptions keys sitting next to the secrets.
 
+##
 
-
-15. What is Shamir Sealing and how does Vault use this concept?
+#### 15. What is Shamir Sealing and how does Vault use this concept?
 
    Answer: 
+
      This is basically an algorithm to safeguard the master key. A certain threshold of shards is required to reconstruct the unseal key, which is then used to decrypt the master key.    
 
+##
 
 16. How does the unseal process work?
 
