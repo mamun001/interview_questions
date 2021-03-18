@@ -10,7 +10,8 @@
 ##
 
 
-#### 1. What have you done with Vault? This question comes up all the time.
+#### 1. What have you done with Vault? 
+        (This question comes up all the time.)
 
    Answer: Of course, the answer will depend on your unique experiences. However, a prepared and practiced answer goes a long way to convince the interviwer that you are well-versed in Vault. Here are some of possible items:
 
@@ -34,7 +35,7 @@
    
 ##
 
-3. If you have no access to internet, how to do you get help on CLI?
+#### 3. If you have no access to internet, how to do you get help on CLI?
 
    Answer:
      Vault's help is actually very good quality. Here are 3 examples:
@@ -42,8 +43,9 @@
      b. vault kv -h (gets help on vault kv and lists subcommands)
      c. vault kv get -h (gets help on vault kv get)  (testmized):wq
 
+##
 
-4. Why can't one secrets engine access data from another secrets engine? 
+#### 4. Why can't one secrets engine access data from another secrets engine? 
 
     Answer: 
       Beacuse the mechanisms are completely unique for each secret engine. 
