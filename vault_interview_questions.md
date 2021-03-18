@@ -36,12 +36,12 @@
  
      All companies have secrets (passwords, SSL certs, keys etc.). Often, these are needed in code to deploy stuff. That is a significant risk, because traces of these secrets linger on in various places (like repos and logs). Vault among other things, provides 3 major values:
 
-##
-
      a. Secrets can be stored securely in one place and retrieved in an encrypted form to be used once.
+
      b. You can change these secrets dynamically and automatically so that even if a secret is leaked, it has no value after one use.
+
      c. Vault can handle many types of secrets natively (Database, AWS, Key-Value etc.)
-   
+
 ##
 
 #### 3. If you have no access to internet, how to do you get help on CLI?
