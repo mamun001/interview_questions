@@ -43,6 +43,7 @@
 
 #### 3. If you have no access to internet, how to do you get help on CLI?
 
+##
    Answer:
      Vault's help is actually very good quality. Here are 3 examples:
      a. vault -h   (gets help on vault and list subcommands)
