@@ -16,7 +16,8 @@
 
    Of course, the answer will depend on your unique experiences. 
    
-   However, a prepared and practiced answer goes a long way to convince the interviwer that you are well-versed in Vault. Here are some of possible items:
+   However, a prepared and practiced answer goes a long way to convince the interviwer that you are well-versed in Vault. 
+   Here are some of possible items:
 
    a. Install and Setup Non-prod and prod cluster.
 
@@ -240,7 +241,8 @@
 
 #### 23. What is response wrapping?
 
-    Answer: A secret , when retrived, is "wrapped" with ANOTHER token , which can be used ONLY once. This way, the real token cannot be stolen in transit.
+    Answer: A secret , when retrived, is "wrapped" with ANOTHER token , which can be used ONLY once. This way, the real 
+            token cannot be stolen in transit.
             (You can send secret in email if you want, because token can be used only once)
 
 ##
@@ -342,7 +344,8 @@
 #### 39. Let's say you run this command: vault list foo, what will vault server do? (Notice VERB before noun)
 
     Answer: 
-      In this case, you put VERB ahead of noun, it will think that "foo" is a path, so, it will try do see if foo/ (even though you did not put / in the end) is enabled and if so, it will give you list of keys in that path.
+      In this case, you put VERB ahead of noun, it will think that "foo" is a path, so, it will try do see if foo/ 
+      (even though you did not put / in the end) is enabled and if so, it will give you list of keys in that path.
 
 ##
 
@@ -545,7 +548,8 @@
 
 ##
 
-#### 72. One of problem with writing policies is that you have repeat yourself often for various similar policies. Managing those policies become a nightmare pretty fast. How can we make this problem a bit more managable?
+#### 72. One of problem with writing policies is that you have repeat yourself often for various similar policies. 
+         Managing those policies become a nightmare pretty fast. How can we make this problem a bit more managable?
 
     Answer:
       Use templates and variables
@@ -678,7 +682,9 @@
 #### 91. What is "dynamic" secret? 
 
     Answer:  
-      A secret that is generated on demand and has a lease that expires. For example a database password that is generated on the fly and will automatically expire after the lease expires. So, an entity with the right policy gets this password when it needs and uses to login, but after a while (e.g. 24 hours), password is no longer valid.
+      A secret that is generated on demand and has a lease that expires. For example a database password that is generated on 
+      the fly and will automatically expire after the lease expires. So, an entity with the right policy gets this password 
+      when it needs and uses to login, but after a while (e.g. 24 hours), password is no longer valid.
 
 ##
 
@@ -703,7 +709,8 @@
 #### 95. What is Vault Agent?
 
     Answer: 
-      Vault agent automatically handles renewal and re-authentication and thus you do not have to implement potentially complicated renewal logic yourself.
+      Vault agent automatically handles renewal and re-authentication and thus you do not have to implement potentially 
+      complicated renewal logic yourself.
 
 ##
 
@@ -814,7 +821,8 @@
 #### 110. What can you do if a lease  of a Dynamic Secret expires ?
 
      Answer:
-       You have to  generate a new secret because the old secret is gone and so, extending the lease of the old secret doesn't help.
+       You have to  generate a new secret because the old secret is gone and so, extending the lease of the old 
+       secret doesn't help.
 
 ##
 
@@ -852,7 +860,8 @@
 #### 115. Can the Transit Secret Engine update a secret?
 
      Answer:
-       NO! Transit Engine has no business modifying a secret. It's job is take a secret from once place to another (from at rest to an entity who has permission to seet i).
+       NO! Transit Engine has no business modifying a secret. It's job is take a secret from once place to another (from 
+       at rest to an entity who has permission to seet i).
 
 ##
 
@@ -883,7 +892,8 @@
 
 ##
 
-#### 120. Assuming you have the right variable defined, what is quick way to connect to vault server (you are connecting, you are not authenticating) 
+#### 120. Assuming you have the right variable defined, what is quick way to connect to vault server (you are connecting, you are 
+          not authenticating) 
 
    Answer:
      vault status
@@ -928,175 +938,206 @@
 
      Answer:
        You should revoke it and generate it again when needed.
-       This is kind of like AWS root account keys. You should make other admin accounts and basically keep root account out of reach. You can always re-generate root token when you need it.
+       This is kind of like AWS root account keys. You should make other admin accounts and basically keep 
+       root account out of reach. You can always re-generate root token when you need it.
 
 ##
-126. Does Transit Engine STORE any data ?
+
+#### 126. Does Transit Engine STORE any data ?
 
      Answer:
        NO
 
+##
 
-127. Does TSE (Transit Secret Engine) generate Hash ?
+#### 127. Does TSE (Transit Secret Engine) generate Hash ?
 
      Answer:
        Yes.
 
+##
 
-
-128. What is HMAC?
+#### 128. What is HMAC?
 
      Answer:
-       From wikipedia:  In cryptography, an HMAC is a specific type of message authentication code involving a cryptographic hash function and a secret cryptographic key. As with any MAC, it may be used to simultaneously verify both the data integrity and the authenticity of a message.
+       From wikipedia:  In cryptography, an HMAC is a specific type of message authentication code involving a cryptographic 
+       hash function and a secret cryptographic key. As with any MAC, it may be used to simultaneously verify both the 
+       data integrity and the authenticity of a message.
 
+##
 
-
-129. Does TSE (Transit Secret Engine) generate HMACs?
+#### 129. Does TSE (Transit Secret Engine) generate HMACs?
 
      Answer:
        Yes
 
-130. Can one secrets engine access data from another secrets engine? 
+##
+
+#### 130. Can one secrets engine access data from another secrets engine? 
 
     Answer: 
       No.
 
+##
 
-
-131. If you have an application, but you don't want to implement any logic to store tokens or renew token leases, what can you do?
+#### 131. If you have an application, but you don't want to implement any logic to store tokens or renew token leases, what can you do?
 
      Answer:
        Use Vault Agent Caching
 
-132. Which functionality of Vault Agent allows for easy authentication in a wide variety of environments?
+##
+
+#### 132. Which functionality of Vault Agent allows for easy authentication in a wide variety of environments?
 
      Answer:
        Auto-Auth functionality 
 
+##
 
-
-133. When Vault is first initialized, which auth method is availble: (only one) ?
+#### 133. When Vault is first initialized, which auth method is availble: (only one) ?
 
      Answer: Tokens  (Makes sense ,e.g. like root token)
 
+##
 
-
-134. Unsealing does exactly what?
+#### 134. Unsealing does exactly what?
 
      Answer:
 
      Gets the master key (plaintext)
 
+##
 
-135. When you are using * as wildcard, can you also use * as part of path's name (e.g. foo_* to mean foo_abc foo_def etc)?
+#### 135. When you are using * as wildcard, can you also use * as part of path's name (e.g. foo_* to mean foo_abc foo_def etc)?
 
      Answer:
        Yes
 
+##
 
-136. When you are writing a policy and you want to basiclaly say "enter entity's name here", how do you do that?
+#### 136. When you are writing a policy and you want to basiclaly say "enter entity's name here", how do you do that?
 
      Answer:
        {{identity.entity.name}}
 
+##
 
-
-137. Using curl, how to get secret stored at foo/bar   (IP Address of the Vault Server is 1.2.3.4)
+#### 137. Using curl, how to get secret stored at foo/bar   (IP Address of the Vault Server is 1.2.3.4)
 
      Answer: 
        curl --header "X-Vault-Token:insert_token_her" https://1.2.3.4:8200/v1/foo/bar
 
+##
 
-
-138. Joanne logged in to Vault via CLI. He is now sending API calls vi curl, what does he get back?
+#### 138. Joanne logged in to Vault via CLI. He is now sending API calls vi curl, what does he get back?
 
      Answer: Token Polcies (i.e. Her permissions)
 
+##
 
-139. Easiest to way to install Vault on your Mac?
+#### 139. Easiest to way to install Vault on your Mac?
 
       Answer:
         brew install vault
 
+##
 
-140. Can TSE (Transit Secret Engine) "rewrap" ?
-
-     Answer:
-       Yes
-
-
-141. Can you use memory store as backend?
+#### 140. Can TSE (Transit Secret Engine) "rewrap" ?
 
      Answer:
        Yes
 
+##
 
-142. Does Vault Support authentication via TLS certificates?
+#### 141. Can you use memory store as backend?
 
      Answer:
        Yes
 
+##
 
-143. Command to generate root token again:
+#### 142. Does Vault Support authentication via TLS certificates?
+
+     Answer:
+       Yes
+
+##
+
+#### 143. Command to generate root token again:
 
      Answer:
        vault operator generate-root
 
+##
 
-144. According to best practice, what should you do with root tokens in production?
+#### 144. According to best practice, what should you do with root tokens in production?
 
      Answer:
        revoke them! It is like a having a superuser password just hanging around.
 
+##
 
-145. How do you configure where the plugins are located?
+#### 145. How do you configure where the plugins are located?
 
      Answer:
        vault configuration file: plugin_directory=<path>
+##
 
-146. Shamir seal protecs what?
+#### 146. Shamir seal protecs what?
 
     Answer:
       The Master key 
 
-147. What is PKCS 11?
+##
+
+#### 147. What is PKCS 11?
 
      Answer: 
        In cryptography, PKCS #11 is one of the Public-Key Cryptography Standards (source: wikipedia)
 
+##
 
-148. Can you disable tokens auth method?
+#### 148. Can you disable tokens auth method?
 
      Answer:
        NO
+##
 
-149. What does "vault kv destroy" do? Does it destroy a single version or all versions of the secret?
+#### 149. What does "vault kv destroy" do? Does it destroy a single version or all versions of the secret?
 
      Answer:
        Permanently deletes a SINGLE version of a secret. NOT all versions.
 
-150. What does the following command do?
+##
+
+#### 150. What does the following command do?
 
      vault write identity/group name="foo_group" policies="default" ....................... (more options)
 
      Answer: 
        Create a group! The thing to note here is that even creating a group is just writing to a PATH.
 
-151. How to do see what is inside a policy named "foo" ?
+##
+
+#### 151. How to do see what is inside a policy named "foo" ?
 
      Answer:
        vault policy read foo
+##
 
-152. How to see if your vault has HA enabled or not?
+#### 152. How to see if your vault has HA enabled or not?
 
     Answer:
       vault status
 
+##
 
-153. How to read a secret from a path:
+#### 153. How to read a secret from a path:
 
     Answer:
       vault read secret/path1/foo_secret    
 
 
+# .......... 151 Vault Interview Questions  .........
+## By  Mamun Rashid :: https://www.linkedin.com/in/mamunrashid/ :: Please connect with me.
 
