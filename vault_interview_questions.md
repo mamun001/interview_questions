@@ -72,44 +72,49 @@
    
 ##
 
-6. Can you un-delete a secret?
+#### 6. Can you un-delete a secret?
 
      Answer:
        Yes. vault kv undelete -version=3 secret/foo/bar 
 
+##
 
-7. Can you get a docker image of vault server and run it on your Mac?
+#### 7. Can you get a docker image of vault server and run it on your Mac?
 
      Answer: 
        docker run --cap-add=IPC_LOCK -e 'VAULT_DEV_ROOT_TOKEN_ID=myroot' -e 'VAULT_DEV_LISTEN_ADDRESS=0.0.0.0:1234' -p 8200:1234 vault
        (here the last word "vault" is the image name and we are setting parameter values on the fly)
        (tested successfully)
 
+##
 
-8. How many keys are used in Vaults encryption process? 
+#### 8. How many keys are used in Vaults encryption process? 
 
     Answer:	
       Master key and 
       key for storing secrets at rest
 
+##
 
-9. What are the three main duties of response wrapping?
+#### 9. What are the three main duties of response wrapping?
 
    Answer: 
         A. provides cover so that actual data transmitted is not the secret in plain text format, but encrypted. 
         B. Ensure one party can unwrap the secret and 
         C. The secret has a predefined life-time (like a token).
 
+##
 
-10. What is dev mode?
+#### 10. What is dev mode?
 
     Answer:
       It is kind of like "open and easy" mode.
       When Vault is started in dev mode, no further set up is required AND you local vault CLI has automatic access.
       This is meant for playing with vault.
 
+##
 
-11. What does "list" command do?
+#### 11. What does "list" command do?
 
     Answer: 
       This one is confusing. "list" does what it should do. e.g. list keys in a path, lists auths enabled.
@@ -118,12 +123,14 @@
       vault auth list (lists auths enabled) 
       vault list just-a-test/  (lists keys in that path)
 
-12. You have a dynamic secret set up for a database. Lease Time is 24 hours. Developer A does a "vault read" on the correct path. That generates a username and password. Developer A uses that pair to succesfully login to the database. After 1 hour, Developer B (who also has access) does "vault read". Will she get a new pair of username/password or the same one that Developer got?
+##
+
+#### 12. You have a dynamic secret set up for a database. Lease Time is 24 hours. Developer A does a "vault read" on the correct path. That generates a username and password. Developer A uses that pair to succesfully login to the database. After 1 hour, Developer B (who also has access) does "vault read". Will she get a new pair of username/password or the same one that Developer got?
 
      Answer:
        Same as Developer A
 
-
+##
 
 13. Which command would bring out master key?
 
