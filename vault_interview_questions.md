@@ -175,36 +175,41 @@
 
 ##
 
-16. How does the unseal process work?
+#### 16. How does the unseal process work?
 
     Answer:
       The shards are added one at a time (in any order) until enough shards are present to reconstruct the key and decrypt the master key.
 
+##
 
-17. Once a Vault node is unsealed, it remains unsealed until one of what needs to happen for it to be sealed again?
+#### 17. Once a Vault node is unsealed, it remains unsealed until one of what needs to happen for it to be sealed again?
 
     Answer:	
       It is sealed again once "operator seal" command is run
 
-18. When you are writing policies, difference between + AND * ?
+##
+
+#### 18. When you are writing policies, difference between + AND * ?
 
      Answer:
        + is single directory wildcard
        * true wild card : recursive all the way down
 
+##
 
-
-19. What does that general encryption process look like in Vault?
+#### 19. What does that general encryption process look like in Vault?
 
     Answer: 
       Operator sends a secret AFTER encrypting it using base64 (to ensure safe transit).  Vault then encrypts it again using its internal key before storing it at rest.
 
+##
 
-20. What is this "cubbyhole" thing in Vault?
+#### 20. What is this "cubbyhole" thing in Vault?
 
      Answer:
        When Vault is running for the first time, it gives everyone a PATH where,  by defauly, anyone can save secrets. That is "cubbyhole". Without this, one would have to create a path and change its policy just to test out the function of writing and reading secrets.
 
+##
 
 21. When you configure Vault using a configuration file, which 3 parameters must your provide?
 
