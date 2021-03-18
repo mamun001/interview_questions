@@ -529,129 +529,149 @@
 
 ##
 
-71. Most authentication methods have something  that you can tie policies to. What is that called?
+#### 71. Most authentication methods have something  that you can tie policies to. What is that called?
 
     Answer:
       Roles 
 
+##
 
-72. One of problem with writing policies is that you have repeat yourself often for various similar policies. Managing those policies become a nightmare pretty fast. How can we make this problem a bit more managable?
+#### 72. One of problem with writing policies is that you have repeat yourself often for various similar policies. Managing those policies become a nightmare pretty fast. How can we make this problem a bit more managable?
 
     Answer:
       Use templates and variables
 
+##
 
-73. A few examples of auto-auth functions:
+#### 73. A few examples of auto-auth functions:
 
     Answer:
       AWS, Kubernetes, Azure
 
+##
 
-74. Can Vault Agent create new tokens?
+#### 74. Can Vault Agent create new tokens?
 
     Answer: 
       Yes
 
-75. Can Vault Agent renew tokens?
+##
+
+#### 75. Can Vault Agent renew tokens?
 
     Answer:
       Yes.
 
-76. Which component caches leased secrets like dynamoDB credetentials and PKI certificates?
+##
+
+#### 76. Which component caches leased secrets like dynamoDB credetentials and PKI certificates?
 
     Answer:
       Vault Agent
 
+##
 
-
-77. Example command to enable kv engine on your vault server?
+#### 77. Example command to enable kv engine on your vault server?
 
     Answer: 
       vault secrets enable -path=kv-foo -version =2 kv
 
+##
 
-78. Name 3 "storage" vault can use:
+#### 78. Name 3 "storage" vault can use:
 
     Answer: 
       S3, Consul, Generic File Storage
 
+##
 
-79. Name some of Authentication mechanisms:
+#### 79. Name some of Authentication mechanisms:
 
     Answer: 
       EC2 (believe it or not), LDAP, Github, Tokens, Username/Password
 
+##
 
-80. What does "vault init" command do?
+#### 80. What does "vault init" command do?
 
     Answer:
       Will initialize tokens and generate root access token
 
+##
 
-
-81. How many unseal tokens does vault init command create?
+#### 81. How many unseal tokens does vault init command create?
 
     Answer:
       5
+##
 
-82. Can you access the vault secrets when it is sealed?
+#### 82. Can you access the vault secrets when it is sealed?
 
     Answer:
       No. (You can read it, but you can't encrypt it, so it is useless)
 
+##
 
-83. Command to initialize vault:
+#### 83. Command to initialize vault:
 
     Answer:
       vault operator init
 
+##
 
-84. How many times can you initialize vault?
+#### 84. How many times can you initialize vault?
 
     Answer: 
       Only Once
 
+##
 
-85. If you restart vault server after unsealing it, which state does it start up in?
+#### 85. If you restart vault server after unsealing it, which state does it start up in?
 
     Answer:
       Sealed State again.
 
+##
 
-86. In sealed state, why can't vault encrypt the secrets?
+#### 86. In sealed state, why can't vault encrypt the secrets?
 
     Answer: 
       It has no master key at that point.
 
+##
 
-87. What can you use instead of Shamir?
+#### 87. What can you use instead of Shamir?
 
     Answer: 
       AWS KMS
 
+##
 
-88. How do you use AWS KMS instead of Shamir?
+#### 88. How do you use AWS KMS instead of Shamir?
 
     Answer: Add a new seal block under the configuration file for KMS. Then, start up Vault with that configuration file.
 
+##
 
-89. How many keys do you need to unseal using Shamir (by default)?
+#### 89. How many keys do you need to unseal using Shamir (by default)?
 
     Answer: 
       3
 
+##
 
-90. Name an engine supports dynamic secrets:
+#### 90. Name an engine supports dynamic secrets:
 
     Answer:
       Google Cloud
 
 
-91. What is "dynamic" secret? 
+#### 91. What is "dynamic" secret? 
 
     Answer:  
       A secret that is generated on demand and has a lease that expires. For example a database password that is generated on the fly and will automatically expire after the lease expires. So, an entity with the right policy gets this password when it needs and uses to login, but after a while (e.g. 24 hours), password is no longer valid.
 
+##
 
 92. If you want read replicas for low latency, what do you need?
 
